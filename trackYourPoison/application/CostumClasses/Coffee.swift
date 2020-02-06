@@ -6,4 +6,3 @@
 //  Copyright © 2020 Ines&Yvonne. All rights reserved.
 //
 
-import Foundation
