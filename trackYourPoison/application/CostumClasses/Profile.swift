@@ -27,6 +27,17 @@ class Profile {
         self.weight = 0.0
         self.gender = .unknown
     }
+    func getCoffin(){}
+       func getSugar(){}
+       //gets the time until the alcohol is vanisched for the blod
+    func getAlkohol(level : Int, num : Int) -> Double{
+      /*  if(gender){
+            var liquid = 0.55;
+        }
+        */
+       return (Double)(level * num)
+        
+    }
 }
 
 enum Gender {
