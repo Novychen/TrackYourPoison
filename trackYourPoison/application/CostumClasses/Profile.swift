@@ -51,9 +51,7 @@ class Profile {
         if pregnant {
             tau =  tau + 17
         }
-        if age < 15 {
-            
-        }
+       // if age < 15 {}
         if zigaretts {
             tau = tau / 2
         }
