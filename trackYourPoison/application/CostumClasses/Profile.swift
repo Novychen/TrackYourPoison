@@ -43,19 +43,22 @@ class Profile {
      t = zeit
      @param coffien -> in mg
      **/
-    func calcCoffin( coffien : Double){
+    func calcCoffin( coffien : Double) -> Double{
         var tau = 3.0
         if pill {
             tau = tau + 10
-        } else if pregnant {
+        }
+        if pregnant {
             tau =  tau + 17
-        } else if age < 15 {
+        }
+        if age < 15 {
             
-        }else if zigaretts {
+        }
+        if zigaretts {
             tau = tau / 2
         }
         let clean = log(1/2) / tau
-        let t = 0.5 + log(0.025 / coffien) / clean
+       return 0.5 + log(0.025 / coffien) / clean
     }
     func calcSugar(){}
     //gets the time until the alcohol is vanisched for the blod
