@@ -30,6 +30,7 @@
 		94F56C4223AA58EE00CA28B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C4023AA58EE00CA28B9 /* LaunchScreen.storyboard */; };
 		94F56C4D23AA58EE00CA28B9 /* trackYourPoisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C4C23AA58EE00CA28B9 /* trackYourPoisonTests.swift */; };
 		94F56C5823AA58EE00CA28B9 /* trackYourPoisonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C5723AA58EE00CA28B9 /* trackYourPoisonUITests.swift */; };
+		B0883C6023EC3BD500A903A8 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0883C5F23EC3BD500A903A8 /* Calculator.swift */; };
 		B0E5DD8E23CDD845005DC1BE /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E5DD8D23CDD845005DC1BE /* Profile.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		94F56C5323AA58EE00CA28B9 /* trackYourPoisonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trackYourPoisonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F56C5723AA58EE00CA28B9 /* trackYourPoisonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackYourPoisonUITests.swift; sourceTree = "<group>"; };
 		94F56C5923AA58EE00CA28B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0883C5F23EC3BD500A903A8 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		B0E5DD8D23CDD845005DC1BE /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +214,8 @@
 				94EF93A523CE491500AF445B /* Alcohol.swift */,
 				94EF93AB23CE497300AF445B /* Cake.swift */,
 				9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */,
+				B0883C5F23EC3BD500A903A8 /* Calculator.swift */,
+31c73871edb1884b9d652ec696ca6870041ce482
 			);
 			path = CostumClasses;
 			sourceTree = "<group>";
@@ -354,6 +358,7 @@
 				946DA4AF23CE4EB30030309D /* StatisticViewController.swift in Sources */,
 				9407B4FC23ECB4C800AAFEE5 /* SoftDrinkData.swift in Sources */,
 				94EF93A623CE491500AF445B /* Alcohol.swift in Sources */,
+				B0883C6023EC3BD500A903A8 /* Calculator.swift in Sources */,
 				946DA4AD23CE4E0E0030309D /* ProfileViewController.swift in Sources */,
 				948FA7CC23ECC69F0050EA06 /* DrinkCell.swift in Sources */,
 				94CB5B4523EC84E400F9F0FC /* TabBarController.swift in Sources */,
