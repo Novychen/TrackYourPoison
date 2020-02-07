@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9407B4FC23ECB4C800AAFEE5 /* SoftDrinkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */; };
+		9449560E23ED85B7008504DB /* SoftDrink+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9449560C23ED85B6008504DB /* SoftDrink+CoreDataClass.swift */; };
+		9449560F23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9449560D23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift */; };
 		946DA4AB23CE4D0A0030309D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DA4AA23CE4D0A0030309D /* HistoryViewController.swift */; };
 		946DA4AD23CE4E0E0030309D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */; };
 		946DA4AF23CE4EB30030309D /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DA4AE23CE4EB30030309D /* StatisticViewController.swift */; };
+		948FA7CC23ECC69F0050EA06 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948FA7CB23ECC69F0050EA06 /* DrinkCell.swift */; };
+		94CB5B4523EC84E400F9F0FC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5B4423EC84E400F9F0FC /* TabBarController.swift */; };
 		94EE034923CE4AD500CA203A /* NewFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE034823CE4AD500CA203A /* NewFoodViewController.swift */; };
 		94EE034B23CE4B0E00CA203A /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE034A23CE4B0E00CA203A /* AddFoodViewController.swift */; };
 		94EF93A223CE48F200AF445B /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93A123CE48F200AF445B /* Coffee.swift */; };
 		94EF93A423CE490000AF445B /* Tea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93A323CE490000AF445B /* Tea.swift */; };
 		94EF93A623CE491500AF445B /* Alcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93A523CE491500AF445B /* Alcohol.swift */; };
-		94EF93AA23CE495A00AF445B /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93A923CE495A00AF445B /* SoftDrink.swift */; };
 		94EF93AC23CE497300AF445B /* Cake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93AB23CE497300AF445B /* Cake.swift */; };
 		94EF93AE23CE499700AF445B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93AD23CE499700AF445B /* HomeViewController.swift */; };
 		94F56C3523AA58EC00CA28B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C3423AA58EC00CA28B9 /* AppDelegate.swift */; };
@@ -47,15 +51,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrinkData.swift; sourceTree = "<group>"; };
+		9449560C23ED85B6008504DB /* SoftDrink+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoftDrink+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9449560D23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoftDrink+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		946DA4AA23CE4D0A0030309D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		946DA4AE23CE4EB30030309D /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		948FA7CB23ECC69F0050EA06 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrinkCell.swift; path = trackYourPoison/application/CostumClasses/DrinkCell.swift; sourceTree = SOURCE_ROOT; };
+		94CB5B4423EC84E400F9F0FC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		94EE034823CE4AD500CA203A /* NewFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodViewController.swift; sourceTree = "<group>"; };
 		94EE034A23CE4B0E00CA203A /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
 		94EF93A123CE48F200AF445B /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		94EF93A323CE490000AF445B /* Tea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tea.swift; sourceTree = "<group>"; };
 		94EF93A523CE491500AF445B /* Alcohol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alcohol.swift; sourceTree = "<group>"; };
-		94EF93A923CE495A00AF445B /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
 		94EF93AB23CE497300AF445B /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
 		94EF93AD23CE499700AF445B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		94F56C3123AA58EC00CA28B9 /* trackYourPoison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trackYourPoison.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +108,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9449561123ED85D1008504DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */,
+				9449560C23ED85B6008504DB /* SoftDrink+CoreDataClass.swift */,
+				9449560D23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		94F56C2823AA58EC00CA28B9 = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +147,6 @@
 				94F56C3E23AA58EE00CA28B9 /* Assets.xcassets */,
 				94F56C4023AA58EE00CA28B9 /* LaunchScreen.storyboard */,
 				94F56C4323AA58EE00CA28B9 /* Info.plist */,
-				94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */,
 			);
 			path = trackYourPoison;
 			sourceTree = "<group>";
@@ -155,6 +172,7 @@
 		B0E5DD8923CDD298005DC1BE /* application */ = {
 			isa = PBXGroup;
 			children = (
+				9449561123ED85D1008504DB /* Model */,
 				B0E5DD8C23CDD7DC005DC1BE /* CostumClasses */,
 				B0E5DD8B23CDD2CA005DC1BE /* Cells */,
 				B0E5DD8A23CDD2B4005DC1BE /* ViewController */,
@@ -172,6 +190,7 @@
 				946DA4AA23CE4D0A0030309D /* HistoryViewController.swift */,
 				946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */,
 				946DA4AE23CE4EB30030309D /* StatisticViewController.swift */,
+				94CB5B4423EC84E400F9F0FC /* TabBarController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -179,6 +198,7 @@
 		B0E5DD8B23CDD2CA005DC1BE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				948FA7CB23ECC69F0050EA06 /* DrinkCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -190,8 +210,8 @@
 				94EF93A123CE48F200AF445B /* Coffee.swift */,
 				94EF93A323CE490000AF445B /* Tea.swift */,
 				94EF93A523CE491500AF445B /* Alcohol.swift */,
-				94EF93A923CE495A00AF445B /* SoftDrink.swift */,
 				94EF93AB23CE497300AF445B /* Cake.swift */,
+				9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */,
 			);
 			path = CostumClasses;
 			sourceTree = "<group>";
@@ -329,18 +349,22 @@
 			files = (
 				94F56C3723AA58EC00CA28B9 /* ViewController.swift in Sources */,
 				94EF93AC23CE497300AF445B /* Cake.swift in Sources */,
+				9449560F23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift in Sources */,
 				B0E5DD8E23CDD845005DC1BE /* Profile.swift in Sources */,
 				946DA4AF23CE4EB30030309D /* StatisticViewController.swift in Sources */,
+				9407B4FC23ECB4C800AAFEE5 /* SoftDrinkData.swift in Sources */,
 				94EF93A623CE491500AF445B /* Alcohol.swift in Sources */,
 				946DA4AD23CE4E0E0030309D /* ProfileViewController.swift in Sources */,
+				948FA7CC23ECC69F0050EA06 /* DrinkCell.swift in Sources */,
+				94CB5B4523EC84E400F9F0FC /* TabBarController.swift in Sources */,
 				946DA4AB23CE4D0A0030309D /* HistoryViewController.swift in Sources */,
 				94F56C3D23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld in Sources */,
 				94EF93AE23CE499700AF445B /* HomeViewController.swift in Sources */,
 				94EE034923CE4AD500CA203A /* NewFoodViewController.swift in Sources */,
-				94EF93AA23CE495A00AF445B /* SoftDrink.swift in Sources */,
 				94F56C3523AA58EC00CA28B9 /* AppDelegate.swift in Sources */,
 				94EF93A423CE490000AF445B /* Tea.swift in Sources */,
 				94EE034B23CE4B0E00CA203A /* AddFoodViewController.swift in Sources */,
+				9449560E23ED85B7008504DB /* SoftDrink+CoreDataClass.swift in Sources */,
 				94EF93A223CE48F200AF445B /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,7 +550,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = at.fhooe.mc.trackYourPoison;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -544,7 +568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = at.fhooe.mc.trackYourPoison;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
