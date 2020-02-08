@@ -13,10 +13,13 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    static let appStartCount = "at.fhooe.mc.appStartCountKey"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        var appStartCount = UserDefaults.standard.integer(forKey: AppDelegate.appStartCount)
+        appStartCount += 1
+        UserDefaults.standard.set(appStartCount, forKey: AppDelegate.appStartCount)
         return true
     }
 
@@ -43,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
 
     // MARK: - Core Data stack
 

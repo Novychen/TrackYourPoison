@@ -8,7 +8,22 @@
 
 import Foundation
 
-class Tea{}
+class Tea{
+    
+    var name : String
+    var coffeine : Double
+    var sugar : Double
+    var alcohol : Double
+    var size : Int
+    
+    init(name : String, coffeine : Double, sugar : Double, alcohol : Double, size : Int) {
+        self.name = name
+        self.coffeine = coffeine
+        self.sugar = sugar
+        self.alcohol = alcohol
+        self.size = size
+    }    
+}
 
 
 
