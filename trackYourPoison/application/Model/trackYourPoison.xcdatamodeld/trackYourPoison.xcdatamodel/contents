@@ -18,7 +18,7 @@
         <attribute name="sugar" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="SoftDrink" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Profil" positionX="-63" positionY="27" width="128" height="148"/>
+        <element name="SoftDrink" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>
