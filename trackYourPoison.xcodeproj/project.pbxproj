@@ -10,22 +10,32 @@
 		9407B4FC23ECB4C800AAFEE5 /* SoftDrinkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */; };
 		9449560E23ED85B7008504DB /* SoftDrink+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9449560C23ED85B6008504DB /* SoftDrink+CoreDataClass.swift */; };
 		9449560F23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9449560D23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift */; };
+		9450508823EF449F0088DFB0 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450508723EF449F0088DFB0 /* Food.swift */; };
 		946DA4AB23CE4D0A0030309D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DA4AA23CE4D0A0030309D /* HistoryViewController.swift */; };
 		946DA4AD23CE4E0E0030309D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */; };
 		946DA4AF23CE4EB30030309D /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DA4AE23CE4EB30030309D /* StatisticViewController.swift */; };
-		948FA7CC23ECC69F0050EA06 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948FA7CB23ECC69F0050EA06 /* DrinkCell.swift */; };
+		9482CF9123EEBAA600858E60 /* SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9482CF9023EEBAA600858E60 /* SizeCell.swift */; };
+		94C6AF9F23EF12BD009D5DC8 /* Tea+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AF9723EF12BD009D5DC8 /* Tea+CoreDataClass.swift */; };
+		94C6AFA023EF12BD009D5DC8 /* Tea+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AF9823EF12BD009D5DC8 /* Tea+CoreDataProperties.swift */; };
+		94C6AFA123EF12BD009D5DC8 /* Alcohol+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AF9923EF12BD009D5DC8 /* Alcohol+CoreDataClass.swift */; };
+		94C6AFA223EF12BD009D5DC8 /* Alcohol+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AF9A23EF12BD009D5DC8 /* Alcohol+CoreDataProperties.swift */; };
+		94C6AFA323EF12BD009D5DC8 /* Sweets+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AF9B23EF12BD009D5DC8 /* Sweets+CoreDataClass.swift */; };
+		94C6AFA423EF12BD009D5DC8 /* Sweets+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AF9C23EF12BD009D5DC8 /* Sweets+CoreDataProperties.swift */; };
+		94C6AFA523EF12BD009D5DC8 /* Coffee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AF9D23EF12BD009D5DC8 /* Coffee+CoreDataClass.swift */; };
+		94C6AFA623EF12BD009D5DC8 /* Coffee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AF9E23EF12BD009D5DC8 /* Coffee+CoreDataProperties.swift */; };
+		94C6AFA823EF12E6009D5DC8 /* CoffeeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AFA723EF12E6009D5DC8 /* CoffeeData.swift */; };
+		94C6AFAA23EF12F1009D5DC8 /* AlcoholData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AFA923EF12F1009D5DC8 /* AlcoholData.swift */; };
+		94C6AFAC23EF1302009D5DC8 /* SweetsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AFAB23EF1302009D5DC8 /* SweetsData.swift */; };
+		94C6AFAE23EF130E009D5DC8 /* TeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AFAD23EF130E009D5DC8 /* TeaData.swift */; };
 		94CB5B4523EC84E400F9F0FC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5B4423EC84E400F9F0FC /* TabBarController.swift */; };
+		94D1D01823EF4AEA00B87364 /* trackYourPoison.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */; };
+		94D1D01A23EF575A00B87364 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D1D01923EF575A00B87364 /* FoodCell.swift */; };
 		94EE034923CE4AD500CA203A /* NewFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE034823CE4AD500CA203A /* NewFoodViewController.swift */; };
 		94EE034B23CE4B0E00CA203A /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE034A23CE4B0E00CA203A /* AddFoodViewController.swift */; };
-		94EF93A223CE48F200AF445B /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93A123CE48F200AF445B /* Coffee.swift */; };
-		94EF93A423CE490000AF445B /* Tea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93A323CE490000AF445B /* Tea.swift */; };
-		94EF93A623CE491500AF445B /* Alcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93A523CE491500AF445B /* Alcohol.swift */; };
-		94EF93AC23CE497300AF445B /* Cake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93AB23CE497300AF445B /* Cake.swift */; };
 		94EF93AE23CE499700AF445B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF93AD23CE499700AF445B /* HomeViewController.swift */; };
 		94F56C3523AA58EC00CA28B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C3423AA58EC00CA28B9 /* AppDelegate.swift */; };
 		94F56C3723AA58EC00CA28B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C3623AA58EC00CA28B9 /* ViewController.swift */; };
 		94F56C3A23AA58EC00CA28B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C3823AA58EC00CA28B9 /* Main.storyboard */; };
-		94F56C3D23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */; };
 		94F56C3F23AA58EE00CA28B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C3E23AA58EE00CA28B9 /* Assets.xcassets */; };
 		94F56C4223AA58EE00CA28B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C4023AA58EE00CA28B9 /* LaunchScreen.storyboard */; };
 		94F56C4D23AA58EE00CA28B9 /* trackYourPoisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C4C23AA58EE00CA28B9 /* trackYourPoisonTests.swift */; };
@@ -55,17 +65,27 @@
 		9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrinkData.swift; sourceTree = "<group>"; };
 		9449560C23ED85B6008504DB /* SoftDrink+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoftDrink+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9449560D23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoftDrink+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9450508723EF449F0088DFB0 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		946DA4AA23CE4D0A0030309D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		946DA4AE23CE4EB30030309D /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
-		948FA7CB23ECC69F0050EA06 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrinkCell.swift; path = trackYourPoison/application/CostumClasses/DrinkCell.swift; sourceTree = SOURCE_ROOT; };
+		9482CF9023EEBAA600858E60 /* SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SizeCell.swift; path = trackYourPoison/application/SizeCell.swift; sourceTree = SOURCE_ROOT; };
+		94C6AF9723EF12BD009D5DC8 /* Tea+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tea+CoreDataClass.swift"; sourceTree = "<group>"; };
+		94C6AF9823EF12BD009D5DC8 /* Tea+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tea+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		94C6AF9923EF12BD009D5DC8 /* Alcohol+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alcohol+CoreDataClass.swift"; sourceTree = "<group>"; };
+		94C6AF9A23EF12BD009D5DC8 /* Alcohol+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alcohol+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		94C6AF9B23EF12BD009D5DC8 /* Sweets+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sweets+CoreDataClass.swift"; sourceTree = "<group>"; };
+		94C6AF9C23EF12BD009D5DC8 /* Sweets+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sweets+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		94C6AF9D23EF12BD009D5DC8 /* Coffee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coffee+CoreDataClass.swift"; sourceTree = "<group>"; };
+		94C6AF9E23EF12BD009D5DC8 /* Coffee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coffee+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		94C6AFA723EF12E6009D5DC8 /* CoffeeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeData.swift; sourceTree = "<group>"; };
+		94C6AFA923EF12F1009D5DC8 /* AlcoholData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholData.swift; sourceTree = "<group>"; };
+		94C6AFAB23EF1302009D5DC8 /* SweetsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetsData.swift; sourceTree = "<group>"; };
+		94C6AFAD23EF130E009D5DC8 /* TeaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeaData.swift; sourceTree = "<group>"; };
 		94CB5B4423EC84E400F9F0FC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		94D1D01923EF575A00B87364 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		94EE034823CE4AD500CA203A /* NewFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodViewController.swift; sourceTree = "<group>"; };
 		94EE034A23CE4B0E00CA203A /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
-		94EF93A123CE48F200AF445B /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
-		94EF93A323CE490000AF445B /* Tea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tea.swift; sourceTree = "<group>"; };
-		94EF93A523CE491500AF445B /* Alcohol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alcohol.swift; sourceTree = "<group>"; };
-		94EF93AB23CE497300AF445B /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
 		94EF93AD23CE499700AF445B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		94F56C3123AA58EC00CA28B9 /* trackYourPoison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trackYourPoison.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F56C3423AA58EC00CA28B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +134,14 @@
 			isa = PBXGroup;
 			children = (
 				94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */,
+				94C6AF9723EF12BD009D5DC8 /* Tea+CoreDataClass.swift */,
+				94C6AF9823EF12BD009D5DC8 /* Tea+CoreDataProperties.swift */,
+				94C6AF9923EF12BD009D5DC8 /* Alcohol+CoreDataClass.swift */,
+				94C6AF9A23EF12BD009D5DC8 /* Alcohol+CoreDataProperties.swift */,
+				94C6AF9B23EF12BD009D5DC8 /* Sweets+CoreDataClass.swift */,
+				94C6AF9C23EF12BD009D5DC8 /* Sweets+CoreDataProperties.swift */,
+				94C6AF9D23EF12BD009D5DC8 /* Coffee+CoreDataClass.swift */,
+				94C6AF9E23EF12BD009D5DC8 /* Coffee+CoreDataProperties.swift */,
 				9449560C23ED85B6008504DB /* SoftDrink+CoreDataClass.swift */,
 				9449560D23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift */,
 			);
@@ -200,22 +228,23 @@
 		B0E5DD8B23CDD2CA005DC1BE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				948FA7CB23ECC69F0050EA06 /* DrinkCell.swift */,
+				9482CF9023EEBAA600858E60 /* SizeCell.swift */,
+				94D1D01923EF575A00B87364 /* FoodCell.swift */,
 			);
-			path = Cells;
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		B0E5DD8C23CDD7DC005DC1BE /* CostumClasses */ = {
 			isa = PBXGroup;
 			children = (
 				B0E5DD8D23CDD845005DC1BE /* Profile.swift */,
-				94EF93A123CE48F200AF445B /* Coffee.swift */,
-				94EF93A323CE490000AF445B /* Tea.swift */,
-				94EF93A523CE491500AF445B /* Alcohol.swift */,
-				94EF93AB23CE497300AF445B /* Cake.swift */,
 				9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */,
 				B0883C5F23EC3BD500A903A8 /* Calculator.swift */,
-31c73871edb1884b9d652ec696ca6870041ce482
+				94C6AFA723EF12E6009D5DC8 /* CoffeeData.swift */,
+				94C6AFA923EF12F1009D5DC8 /* AlcoholData.swift */,
+				94C6AFAB23EF1302009D5DC8 /* SweetsData.swift */,
+				94C6AFAD23EF130E009D5DC8 /* TeaData.swift */,
+				9450508723EF449F0088DFB0 /* Food.swift */,
 			);
 			path = CostumClasses;
 			sourceTree = "<group>";
@@ -324,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D1D01823EF4AEA00B87364 /* trackYourPoison.xcdatamodeld in Resources */,
 				94F56C4223AA58EE00CA28B9 /* LaunchScreen.storyboard in Resources */,
 				94F56C3F23AA58EE00CA28B9 /* Assets.xcassets in Resources */,
 				94F56C3A23AA58EC00CA28B9 /* Main.storyboard in Resources */,
@@ -351,26 +381,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C6AFA623EF12BD009D5DC8 /* Coffee+CoreDataProperties.swift in Sources */,
 				94F56C3723AA58EC00CA28B9 /* ViewController.swift in Sources */,
-				94EF93AC23CE497300AF445B /* Cake.swift in Sources */,
 				9449560F23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift in Sources */,
+				94C6AFAE23EF130E009D5DC8 /* TeaData.swift in Sources */,
 				B0E5DD8E23CDD845005DC1BE /* Profile.swift in Sources */,
+				94C6AFAA23EF12F1009D5DC8 /* AlcoholData.swift in Sources */,
+				94C6AFA123EF12BD009D5DC8 /* Alcohol+CoreDataClass.swift in Sources */,
 				946DA4AF23CE4EB30030309D /* StatisticViewController.swift in Sources */,
+				94C6AFA323EF12BD009D5DC8 /* Sweets+CoreDataClass.swift in Sources */,
+				94C6AFA023EF12BD009D5DC8 /* Tea+CoreDataProperties.swift in Sources */,
 				9407B4FC23ECB4C800AAFEE5 /* SoftDrinkData.swift in Sources */,
-				94EF93A623CE491500AF445B /* Alcohol.swift in Sources */,
+				94C6AFA823EF12E6009D5DC8 /* CoffeeData.swift in Sources */,
 				B0883C6023EC3BD500A903A8 /* Calculator.swift in Sources */,
 				946DA4AD23CE4E0E0030309D /* ProfileViewController.swift in Sources */,
-				948FA7CC23ECC69F0050EA06 /* DrinkCell.swift in Sources */,
+				9482CF9123EEBAA600858E60 /* SizeCell.swift in Sources */,
 				94CB5B4523EC84E400F9F0FC /* TabBarController.swift in Sources */,
+				94C6AFAC23EF1302009D5DC8 /* SweetsData.swift in Sources */,
+				94C6AFA223EF12BD009D5DC8 /* Alcohol+CoreDataProperties.swift in Sources */,
 				946DA4AB23CE4D0A0030309D /* HistoryViewController.swift in Sources */,
-				94F56C3D23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld in Sources */,
 				94EF93AE23CE499700AF445B /* HomeViewController.swift in Sources */,
 				94EE034923CE4AD500CA203A /* NewFoodViewController.swift in Sources */,
 				94F56C3523AA58EC00CA28B9 /* AppDelegate.swift in Sources */,
-				94EF93A423CE490000AF445B /* Tea.swift in Sources */,
+				94C6AFA423EF12BD009D5DC8 /* Sweets+CoreDataProperties.swift in Sources */,
+				9450508823EF449F0088DFB0 /* Food.swift in Sources */,
 				94EE034B23CE4B0E00CA203A /* AddFoodViewController.swift in Sources */,
 				9449560E23ED85B7008504DB /* SoftDrink+CoreDataClass.swift in Sources */,
-				94EF93A223CE48F200AF445B /* Coffee.swift in Sources */,
+				94C6AFA523EF12BD009D5DC8 /* Coffee+CoreDataClass.swift in Sources */,
+				94D1D01A23EF575A00B87364 /* FoodCell.swift in Sources */,
+				94C6AF9F23EF12BD009D5DC8 /* Tea+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
