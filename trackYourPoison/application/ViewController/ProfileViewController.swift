@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileViewController : UIViewController {
+    
     
     
     @IBOutlet weak var userPicture: UIImageView!
     
     @IBOutlet weak var infoTable: UITableView!
     
-  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        var user : Profil
+        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<Profil>(entityName: "Profil")
+         if let profil = try? context.fetch(request){
+                user = profil
+        }
+    }
            
        
     

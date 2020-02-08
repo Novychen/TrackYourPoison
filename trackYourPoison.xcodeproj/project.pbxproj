@@ -25,7 +25,6 @@
 		94F56C3523AA58EC00CA28B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C3423AA58EC00CA28B9 /* AppDelegate.swift */; };
 		94F56C3723AA58EC00CA28B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C3623AA58EC00CA28B9 /* ViewController.swift */; };
 		94F56C3A23AA58EC00CA28B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C3823AA58EC00CA28B9 /* Main.storyboard */; };
-		94F56C3D23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */; };
 		94F56C3F23AA58EE00CA28B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C3E23AA58EE00CA28B9 /* Assets.xcassets */; };
 		94F56C4223AA58EE00CA28B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C4023AA58EE00CA28B9 /* LaunchScreen.storyboard */; };
 		94F56C4D23AA58EE00CA28B9 /* trackYourPoisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C4C23AA58EE00CA28B9 /* trackYourPoisonTests.swift */; };
@@ -33,6 +32,7 @@
 		B0883C6023EC3BD500A903A8 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0883C5F23EC3BD500A903A8 /* Calculator.swift */; };
 		B0B3EB0823EF55EF00036DF8 /* Profil+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3EB0623EF55EF00036DF8 /* Profil+CoreDataClass.swift */; };
 		B0B3EB0923EF55EF00036DF8 /* Profil+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3EB0723EF55EF00036DF8 /* Profil+CoreDataProperties.swift */; };
+		B0B3EB0A23EF582100036DF8 /* trackYourPoison.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B3EB0A23EF582100036DF8 /* trackYourPoison.xcdatamodeld in Resources */,
 				94F56C4223AA58EE00CA28B9 /* LaunchScreen.storyboard in Resources */,
 				94F56C3F23AA58EE00CA28B9 /* Assets.xcassets in Resources */,
 				94F56C3A23AA58EC00CA28B9 /* Main.storyboard in Resources */,
@@ -365,7 +366,6 @@
 				948FA7CC23ECC69F0050EA06 /* DrinkCell.swift in Sources */,
 				94CB5B4523EC84E400F9F0FC /* TabBarController.swift in Sources */,
 				946DA4AB23CE4D0A0030309D /* HistoryViewController.swift in Sources */,
-				94F56C3D23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld in Sources */,
 				94EF93AE23CE499700AF445B /* HomeViewController.swift in Sources */,
 				94EE034923CE4AD500CA203A /* NewFoodViewController.swift in Sources */,
 				94F56C3523AA58EC00CA28B9 /* AppDelegate.swift in Sources */,

@@ -13,4 +13,5 @@ import CoreData
 @objc(Profil)
 public class Profil: NSManagedObject {
 
+    
 }
