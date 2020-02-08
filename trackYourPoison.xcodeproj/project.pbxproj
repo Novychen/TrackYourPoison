@@ -31,7 +31,6 @@
 		94F56C4D23AA58EE00CA28B9 /* trackYourPoisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C4C23AA58EE00CA28B9 /* trackYourPoisonTests.swift */; };
 		94F56C5823AA58EE00CA28B9 /* trackYourPoisonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C5723AA58EE00CA28B9 /* trackYourPoisonUITests.swift */; };
 		B0883C6023EC3BD500A903A8 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0883C5F23EC3BD500A903A8 /* Calculator.swift */; };
-		B0E5DD8E23CDD845005DC1BE /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E5DD8D23CDD845005DC1BE /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +81,6 @@
 		94F56C5723AA58EE00CA28B9 /* trackYourPoisonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackYourPoisonUITests.swift; sourceTree = "<group>"; };
 		94F56C5923AA58EE00CA28B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0883C5F23EC3BD500A903A8 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
-		B0E5DD8D23CDD845005DC1BE /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,14 +206,12 @@
 		B0E5DD8C23CDD7DC005DC1BE /* CostumClasses */ = {
 			isa = PBXGroup;
 			children = (
-				B0E5DD8D23CDD845005DC1BE /* Profile.swift */,
 				94EF93A123CE48F200AF445B /* Coffee.swift */,
 				94EF93A323CE490000AF445B /* Tea.swift */,
 				94EF93A523CE491500AF445B /* Alcohol.swift */,
 				94EF93AB23CE497300AF445B /* Cake.swift */,
 				9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */,
 				B0883C5F23EC3BD500A903A8 /* Calculator.swift */,
-31c73871edb1884b9d652ec696ca6870041ce482
 			);
 			path = CostumClasses;
 			sourceTree = "<group>";
@@ -354,7 +350,6 @@
 				94F56C3723AA58EC00CA28B9 /* ViewController.swift in Sources */,
 				94EF93AC23CE497300AF445B /* Cake.swift in Sources */,
 				9449560F23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift in Sources */,
-				B0E5DD8E23CDD845005DC1BE /* Profile.swift in Sources */,
 				946DA4AF23CE4EB30030309D /* StatisticViewController.swift in Sources */,
 				9407B4FC23ECB4C800AAFEE5 /* SoftDrinkData.swift in Sources */,
 				94EF93A623CE491500AF445B /* Alcohol.swift in Sources */,

@@ -605,6 +605,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="alcoholTimer" destination="kKS-lT-Njf" id="6za-p9-qRT"/>
+                        <outlet property="coffeineTimer" destination="CIK-XF-FU3" id="D5x-dF-okD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Wy-uS-mQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

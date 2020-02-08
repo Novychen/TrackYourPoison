@@ -15,6 +15,8 @@ class ProfileViewController : UIViewController {
     
     @IBOutlet weak var infoTable: UITableView!
     
-    
+  
+           
+       
     
 }
