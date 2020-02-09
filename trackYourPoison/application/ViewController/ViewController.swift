@@ -37,9 +37,13 @@ class ViewController: UIViewController {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let profil = Profil(context: context)
         profil.name = nameText.text
+        print("name : \(profil.name)")
         profil.nikotin = smoker
+        print("smoker : \(profil.nikotin)")
         profil.pill = pill
+        print("pill : \(profil.pill)")
         profil.pregnent = preg
+        print("preg : \(profil.pregnent)")
         if(male){
             profil.gender = "male"
         }else if(female){
@@ -47,10 +51,12 @@ class ViewController: UIViewController {
         }else{
             profil.gender = "unknown"
         }
-        
-      //  profil.age = ageText.text
-        // profil.weight = Double(weightText.text!)
-         
+        print("gender : \(profil.gender)")
+        profil.age = Int64(ageText.text ?? " ") ?? 0
+        print("age : \(profil.age)")
+        profil.weight = Double(weightText.text!) ?? 0
+        print("weight : \(profil.weight)")
+        print("Data Saved")
         appDelegate.saveContext()
         navigationController?.popViewController(animated: true)
     }

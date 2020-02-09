@@ -40,7 +40,7 @@ class HomeViewController : UIViewController {
             let size = drinks.getSize()
             let kcal = drinks.getKcal()
           
-        
+            
             
             for (index, _) in name.enumerated(){
                 let drink = NSManagedObject(entity: drinkEntity!, insertInto: context)
