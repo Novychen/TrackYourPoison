@@ -29,9 +29,9 @@
 		94F56C4223AA58EE00CA28B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C4023AA58EE00CA28B9 /* LaunchScreen.storyboard */; };
 		94F56C4D23AA58EE00CA28B9 /* trackYourPoisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C4C23AA58EE00CA28B9 /* trackYourPoisonTests.swift */; };
 		94F56C5823AA58EE00CA28B9 /* trackYourPoisonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C5723AA58EE00CA28B9 /* trackYourPoisonUITests.swift */; };
+		B00C812A23EF79C30085E94F /* Profil+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C812823EF79C30085E94F /* Profil+CoreDataClass.swift */; };
+		B00C812B23EF79C30085E94F /* Profil+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C812923EF79C30085E94F /* Profil+CoreDataProperties.swift */; };
 		B0883C6023EC3BD500A903A8 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0883C5F23EC3BD500A903A8 /* Calculator.swift */; };
-		B0B3EB0823EF55EF00036DF8 /* Profil+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3EB0623EF55EF00036DF8 /* Profil+CoreDataClass.swift */; };
-		B0B3EB0923EF55EF00036DF8 /* Profil+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3EB0723EF55EF00036DF8 /* Profil+CoreDataProperties.swift */; };
 		B0B3EB0A23EF582100036DF8 /* trackYourPoison.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -82,9 +82,9 @@
 		94F56C5323AA58EE00CA28B9 /* trackYourPoisonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trackYourPoisonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F56C5723AA58EE00CA28B9 /* trackYourPoisonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackYourPoisonUITests.swift; sourceTree = "<group>"; };
 		94F56C5923AA58EE00CA28B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B00C812823EF79C30085E94F /* Profil+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profil+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B00C812923EF79C30085E94F /* Profil+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profil+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B0883C5F23EC3BD500A903A8 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
-		B0B3EB0623EF55EF00036DF8 /* Profil+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profil+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B0B3EB0723EF55EF00036DF8 /* Profil+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profil+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				94F56C3B23AA58EC00CA28B9 /* trackYourPoison.xcdatamodeld */,
-				B0B3EB0623EF55EF00036DF8 /* Profil+CoreDataClass.swift */,
-				B0B3EB0723EF55EF00036DF8 /* Profil+CoreDataProperties.swift */,
+				B00C812823EF79C30085E94F /* Profil+CoreDataClass.swift */,
+				B00C812923EF79C30085E94F /* Profil+CoreDataProperties.swift */,
 				9449560C23ED85B6008504DB /* SoftDrink+CoreDataClass.swift */,
 				9449560D23ED85B7008504DB /* SoftDrink+CoreDataProperties.swift */,
 			);
@@ -362,7 +362,8 @@
 				94EF93A623CE491500AF445B /* Alcohol.swift in Sources */,
 				B0883C6023EC3BD500A903A8 /* Calculator.swift in Sources */,
 				946DA4AD23CE4E0E0030309D /* ProfileViewController.swift in Sources */,
-				B0B3EB0923EF55EF00036DF8 /* Profil+CoreDataProperties.swift in Sources */,
+				B00C812A23EF79C30085E94F /* Profil+CoreDataClass.swift in Sources */,
+				B00C812B23EF79C30085E94F /* Profil+CoreDataProperties.swift in Sources */,
 				948FA7CC23ECC69F0050EA06 /* DrinkCell.swift in Sources */,
 				94CB5B4523EC84E400F9F0FC /* TabBarController.swift in Sources */,
 				946DA4AB23CE4D0A0030309D /* HistoryViewController.swift in Sources */,
@@ -371,7 +372,6 @@
 				94F56C3523AA58EC00CA28B9 /* AppDelegate.swift in Sources */,
 				94EF93A423CE490000AF445B /* Tea.swift in Sources */,
 				94EE034B23CE4B0E00CA203A /* AddFoodViewController.swift in Sources */,
-				B0B3EB0823EF55EF00036DF8 /* Profil+CoreDataClass.swift in Sources */,
 				9449560E23ED85B7008504DB /* SoftDrink+CoreDataClass.swift in Sources */,
 				94EF93A223CE48F200AF445B /* Coffee.swift in Sources */,
 			);

@@ -19,12 +19,12 @@ class ProfileViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var user : Profil
+        var profil : Profil
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<Profil>(entityName: "Profil")
-         if let profil = try? context.fetch(request){
-                user = profil
+         if let user = try? context.fetch(request){
+               profil = user
         }
     }
            

@@ -7,7 +7,7 @@
         <attribute name="nikotin" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="pill" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="pregnent" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="weight" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <entity name="SoftDrink" representedClassName="SoftDrink" syncable="YES">
         <attribute name="alcohol" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
