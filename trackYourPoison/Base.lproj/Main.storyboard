@@ -127,20 +127,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTw-Y9-SGv">
-                                <rect key="frame" x="16" y="128" width="142" height="32"/>
+                                <rect key="frame" x="16" y="127.99999999999999" width="142" height="31.333333333333329"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fi0-kY-iNE">
-                                <rect key="frame" x="307" y="136.66666666666666" width="15" height="15"/>
+                                <rect key="frame" x="307" y="136.33333333333334" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="8yu-AG-z9S"/>
                                     <constraint firstAttribute="width" constant="15" id="Qgp-aN-Nqj"/>
                                 </constraints>
                             </imageView>
                             <searchBar contentMode="redraw" placeholder="Search ..." translatesAutoresizingMaskIntoConstraints="NO" id="QoK-81-SiG">
-                                <rect key="frame" x="0.0" y="180" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="179.33333333333334" width="375" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -153,7 +153,7 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lD-Ql-y4Z">
-                                <rect key="frame" x="164" y="122" width="141" height="44"/>
+                                <rect key="frame" x="164" y="121.66666666666669" width="141" height="44"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="food or drink"/>
                                 <connections>
@@ -162,7 +162,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nEJ-pc-acl">
-                                <rect key="frame" x="0.0" y="241" width="375" height="537"/>
+                                <rect key="frame" x="0.0" y="240.33333333333331" width="375" height="537.66666666666674"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oBk-Lq-LbQ">
                                     <size key="itemSize" width="240" height="350"/>
@@ -172,7 +172,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FoodCell" id="b9e-Ze-5ij" customClass="FoodCell" customModule="trackYourPoison" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="18.666666666666668" width="350" height="500"/>
+                                        <rect key="frame" x="0.0" y="19" width="350" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
@@ -220,7 +220,7 @@
                                 </cells>
                             </collectionView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x3r-iH-cch">
-                                <rect key="frame" x="164" y="159.66666666666666" width="161" height="99.999999999999972"/>
+                                <rect key="frame" x="164" y="159.33333333333334" width="161" height="100.00000000000003"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="55S-3z-DUf"/>
@@ -288,40 +288,6 @@
                 <exit id="7WQ-DQ-LfI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4758" y="-943"/>
-        </scene>
-        <!--Statistics-->
-        <scene sceneID="OV9-VQ-pYj">
-            <objects>
-                <navigationController id="OVl-Vt-FSP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Statistics" id="aed-js-fDd"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ivS-b6-jza">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ztp-1G-Dxp" kind="relationship" relationship="rootViewController" id="CG3-wk-KKM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CAf-cu-GwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="935" y="214"/>
-        </scene>
-        <!--Statistics-->
-        <scene sceneID="VlX-Th-Zy5">
-            <objects>
-                <viewController id="ztp-1G-Dxp" customClass="StatisticViewController" customModule="trackYourPoison" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="i2f-SM-k67">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <viewLayoutGuide key="safeArea" id="sDM-KG-RlH"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" id="LCC-s6-bRW"/>
-                    <navigationItem key="navigationItem" title="Statistics" id="zaX-y1-FEV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c9j-nu-nSG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1658" y="214"/>
         </scene>
         <!--Profile-->
         <scene sceneID="xtH-JW-OVC">
@@ -428,7 +394,6 @@
                         <segue destination="WvD-q1-ASC" kind="relationship" relationship="viewControllers" id="bps-u2-RtK"/>
                         <segue destination="PFH-g7-QTn" kind="relationship" relationship="viewControllers" id="eVN-t8-jTh"/>
                         <segue destination="9wK-Ky-GdE" kind="relationship" relationship="viewControllers" id="He4-jZ-5uS"/>
-                        <segue destination="OVl-Vt-FSP" kind="relationship" relationship="viewControllers" id="3Nq-3O-flG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0z-Q7-zDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -603,6 +568,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="alcoholTimer" destination="kKS-lT-Njf" id="6za-p9-qRT"/>
+                        <outlet property="coffeineTimer" destination="CIK-XF-FU3" id="D5x-dF-okD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Wy-uS-mQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,5 +1,5 @@
 //
-//  SoftDrink+CoreDataClass.swift
+//  Profil+CoreDataClass.swift
 //  trackYourPoison
 //
 //  Created by Yvonne on 08.02.20.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(SoftDrink)
-public class SoftDrink: NSManagedObject {
+@objc(Profil)
+public class Profil: NSManagedObject {
 
 }

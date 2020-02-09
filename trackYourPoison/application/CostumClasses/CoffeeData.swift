@@ -17,25 +17,25 @@ class CoffeeData {
     private var image : [String]
     
     init() {
-        name = ["Starbucks Caffè Americano",
-                "Starbucks Caffè Latte",
-                "Starbucks Caffè Mocha",
-                "Starbucks Cappucino",
-                "Starbucks Classic Hot Chocolate",
-                "Starbucks Coffee Frappuccino",
-                "Dunkin'n Donuts Hot Chocolate",
-                "Dunkin'n Donuts Espresso",
-                "Dunkin'n Donuts Cappuccino",
-                "Dunkin'n Donuts Macchiato",
-                "Dunkin'n Donuts Frozen Vanilla Chai",
-                "McDonalds Cappuccino",
-                "McDonalds Mocha Latte",
-                "McDonalds Latte",
-                "McDonalds Americano",
-                "McDonalds Hot Chocolate"
+        image = ["Coffee_SB_Americano.jpg",
+                "Coffee_SB_Latte.jpg",
+                "Coffee_SB_Mocha.png",
+                "Coffee_SB_Cappucino.jpg",
+                "Coffee_SB_HotChocolate.jpg",
+                "Coffee_SB_Frappuccino_Coffee.jpg",
+                "Coffee_DD_HotChocolate.jpg",
+                "Coffee_DD_Espresso.png",
+                "Coffee_DD_Cappuccino.png",
+                "Coffee_DD_Machiato.png",
+                "Coffee_DD_Chai.jpg",
+                "Coffee_McD_Cappuccino.jpg",
+                "Coffee_McD_MochaLatta.jpg",
+                "Coffee_McD_Latte.jpg",
+                "Coffee_McD_Aamericano.jpg",
+                "Coffee_McD_HotChoclate.jpg"
         ]
         
-        image = ["Coffee_SB_Americano",
+        name = ["Starbucks Caffè Americano",
                  "Starbucks Caffè Latte",
                  "Starbucks Caffè Mocha",
                  "Starbucks Cappucino",
@@ -98,5 +98,9 @@ class CoffeeData {
     
     func getKcal() -> [Int] {
         return kcal
+    }
+    
+    func getImage() -> [String] {
+        return image
     }
 }

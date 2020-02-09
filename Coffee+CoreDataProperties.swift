@@ -2,7 +2,7 @@
 //  Coffee+CoreDataProperties.swift
 //  trackYourPoison
 //
-//  Created by Yvonne on 08.02.20.
+//  Created by Yvonne on 09.02.20.
 //  Copyright © 2020 Ines&Yvonne. All rights reserved.
 //
 //
@@ -17,14 +17,14 @@ extension Coffee {
         return NSFetchRequest<Coffee>(entityName: "Coffee")
     }
 
-    @NSManaged public var sugar: Double
-    @NSManaged public var coffeine: Double
     @NSManaged public var alcohol: Double
+    @NSManaged public var coffeine: Double
+    @NSManaged public var kcal: Int32
     @NSManaged public var name: String?
-    @NSManaged public var size: NSObject?
-    @NSManaged public var kcal: Int16
-    @NSManaged public var image: String?
-    @NSManaged public var test: Int64
-
+    @NSManaged public var sizesAvailable: NSObject?
+    @NSManaged public var sugar: Double
+    @NSManaged public var amount: Double
+    @NSManaged public var time: Int64
+    @NSManaged public var size: String?
 
 }

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static let appStartCount = "at.fhooe.mc.appStartCountKey"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
         var appStartCount = UserDefaults.standard.integer(forKey: AppDelegate.appStartCount)
         appStartCount += 1
         UserDefaults.standard.set(appStartCount, forKey: AppDelegate.appStartCount)
