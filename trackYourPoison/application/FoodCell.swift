@@ -15,4 +15,9 @@ class FoodCell : UICollectionViewCell {
     @IBOutlet weak var foodName : UILabel!
     @IBOutlet weak var foodInfo : UILabel!
     
+   
+    override func prepareForReuse() {
+        foodImage.image = nil
+        self.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+    }
 }

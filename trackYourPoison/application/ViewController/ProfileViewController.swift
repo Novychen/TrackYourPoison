@@ -10,9 +10,7 @@ import UIKit
 import CoreData
 
 class ProfileViewController : UIViewController {
-    
-    var user : Profil = Profil()
-    
+        
     @IBOutlet weak var userPicture: UIImageView!
     
     @IBOutlet weak var infoTable: UITableView!

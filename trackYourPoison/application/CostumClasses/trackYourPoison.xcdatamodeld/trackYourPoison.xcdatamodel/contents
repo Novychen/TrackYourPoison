@@ -17,6 +17,7 @@
         <attribute name="coffeine" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="kcal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sizesAvailable" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="sugar" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -36,7 +37,7 @@
         <attribute name="nikotin" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pill" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pregnent" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="weight" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="SoftDrink" representedClassName="SoftDrink" syncable="YES" codeGenerationType="class">
         <attribute name="alcohol" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -73,11 +74,11 @@
     </entity>
     <elements>
         <element name="Alcohol" positionX="0" positionY="63" width="128" height="180"/>
-        <element name="Coffee" positionX="-54" positionY="36" width="128" height="180"/>
+        <element name="Coffee" positionX="-54" positionY="36" width="128" height="195"/>
+        <element name="History" positionX="-18" positionY="99" width="128" height="120"/>
         <element name="Profil" positionX="18" positionY="117" width="128" height="150"/>
         <element name="SoftDrink" positionX="-63" positionY="-18" width="128" height="180"/>
         <element name="Sweets" positionX="-36" positionY="45" width="128" height="180"/>
         <element name="Tea" positionX="-18" positionY="54" width="128" height="180"/>
-        <element name="History" positionX="-18" positionY="99" width="128" height="120"/>
     </elements>
 </model>

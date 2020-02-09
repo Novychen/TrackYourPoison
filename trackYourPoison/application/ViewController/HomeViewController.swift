@@ -25,7 +25,8 @@ class HomeViewController : UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         if (start == 1) {
-        saveData(context : context)
+            saveData(context : context)
+            appDelegate.saveContext()
         }
          timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
@@ -62,7 +63,8 @@ class HomeViewController : UIViewController {
         do {
             try context.save()
             print("saved data")
-        } catch let error as NSError { print("Could not save. \(error), \(error.userInfo)")}
+        } catch let error as NSError { print("Could not save. \(error), \(error.userInfo)") }
+        
         
         name = sweets.getName()
         coffeine = sweets.getCoffeine()

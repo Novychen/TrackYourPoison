@@ -2,7 +2,7 @@
 //  Profil+CoreDataProperties.swift
 //  trackYourPoison
 //
-//  Created by Yvonne on 08.02.20.
+//  Created by Yvonne on 09.02.20.
 //  Copyright © 2020 Ines&Yvonne. All rights reserved.
 //
 //
@@ -19,12 +19,10 @@ extension Profil {
 
     @NSManaged public var age: Int64
     @NSManaged public var gender: String?
-    @NSManaged public var pill: Bool
     @NSManaged public var name: String?
     @NSManaged public var nikotin: Bool
+    @NSManaged public var pill: Bool
     @NSManaged public var pregnent: Bool
-    @NSManaged public var weight: NSDecimalNumber?
-    
-    
+    @NSManaged public var weight: Double
 
 }

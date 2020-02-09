@@ -18,13 +18,14 @@ extension Coffee {
     }
 
     @NSManaged public var alcohol: Double
+    @NSManaged public var amount: Double
     @NSManaged public var coffeine: Double
     @NSManaged public var kcal: Int32
     @NSManaged public var name: String?
+    @NSManaged public var size: String?
     @NSManaged public var sizesAvailable: NSObject?
     @NSManaged public var sugar: Double
-    @NSManaged public var amount: Double
     @NSManaged public var time: Int64
-    @NSManaged public var size: String?
+    @NSManaged public var selected: Bool
 
 }

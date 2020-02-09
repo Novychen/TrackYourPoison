@@ -13,8 +13,12 @@ class AddFoodViewController : UIViewController {
     
     var food : Food = Food()
     var foodChosen : Int = 0
-
     var foodOptions = ["softdrink", "coffee", "sweets", "alcohol", "tea"]
+    final let SOFTDRINK = 0
+    final let CAFFEE = 1
+    final let SWEETS = 2
+    final let ALCOHOL = 3
+    final let TEA = 4
     
     @IBOutlet weak var foodChoice: UIButton!
     @IBOutlet weak var foodList: UICollectionView!
@@ -25,7 +29,7 @@ class AddFoodViewController : UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        foodList.allowsMultipleSelection = true
         requestData()
     }
     
@@ -44,28 +48,27 @@ class AddFoodViewController : UIViewController {
         let context = appDelegate.persistentContainer.viewContext
         
         switch foodChosen {
-        case 0:
+        case SOFTDRINK:
             let request = NSFetchRequest<SoftDrink>(entityName: "SoftDrink")
             if let data = try? context.fetch(request){
                 self.food.softdrinks = data
             }
-        case 1:
+        case CAFFEE:
             let request = NSFetchRequest<Coffee>(entityName: "Coffee")
             if let data = try? context.fetch(request){
-                print(data[2].name)
                 self.food.coffee = data
             }
-        case 2:
+        case SWEETS:
             let request = NSFetchRequest<Sweets>(entityName: "Sweets")
             if let data = try? context.fetch(request){
                 self.food.sweets = data
             }
-        case 3:
+        case ALCOHOL:
             let request = NSFetchRequest<Alcohol>(entityName: "Alcohol")
             if let data = try? context.fetch(request){
                 self.food.alcohol = data
             }
-        case 4:
+        case TEA:
             let request = NSFetchRequest<Tea>(entityName: "Tea")
             if let data = try? context.fetch(request){
                 self.food.tea = data
@@ -108,13 +111,25 @@ extension AddFoodViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = setFoodCell(indexPath: indexPath, collectionView: collectionView)
-        cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
         return cell
     }
+
    
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell = foodList.cellForItem(at: indexPath) as! FoodCell
-        cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+        if foodChosen == CAFFEE {
+            let coffee = food.coffee[indexPath.row]
+            if !coffee.selected {
+                coffee.selected = true
+                cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+            } else {
+                coffee.selected = false
+                cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+            }
+         
+        }
+
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -139,11 +154,9 @@ extension AddFoodViewController: UICollectionViewDataSource {
         if(foodChosen == 0) { setDrinkCell(cell: cell, indexPath: indexPath) }
         else if (foodChosen == 1) { setCoffeeCell(cell: cell, indexPath: indexPath) }
         else if (foodChosen == 2) { setSweetsCell(cell: cell, indexPath: indexPath) }
-
+        
         cell.foodInfo.numberOfLines = 0
         cell.foodName.numberOfLines = 0
-        if(foodChosen != 1) { cell.foodImage.image = UIImage(named:"drink_coca_cola_zero") }
-    
         return cell
     }
     
@@ -154,15 +167,16 @@ extension AddFoodViewController: UICollectionViewDataSource {
         let coffeine = drink.coffeine
         let kcal = drink.kcal
         
-        if(sugar == 0 && coffeine != 0){
+        if sugar == 0 && coffeine != 0 {
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with \(coffeine) mg coffeine"
-        } else if (sugar != 0 && coffeine != 0){
+        } else if sugar != 0 && coffeine != 0 {
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with \(sugar) g sugar & \(coffeine) mg coffeine"
-        } else if (sugar != 0 && coffeine == 0) {
+        } else if sugar != 0 && coffeine == 0 {
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with \(sugar) g sugar"
         } else {
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with no sugar"
         }
+
     }
     
     func setCoffeeCell(cell : FoodCell, indexPath : IndexPath) {
@@ -175,14 +189,19 @@ extension AddFoodViewController: UICollectionViewDataSource {
         let coffeine = drink.coffeine
         let kcal = drink.kcal
 
-        if(sugar == 0 && coffeine != 0){
+        if sugar == 0 && coffeine != 0 {
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with \(coffeine) mg coffeine"
-        } else if (sugar != 0 && coffeine != 0){
+        } else if sugar != 0 && coffeine != 0{
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with \(sugar) g sugar & \(coffeine) mg coffeine"
-        } else if (sugar != 0 && coffeine == 0) {
+        } else if sugar != 0 && coffeine == 0 {
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with \(sugar) g sugar"
         } else {
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with no coffeine"
+        }
+        if drink.selected {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+        } else {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
         }
         
         let data : CoffeeData = CoffeeData()
