@@ -23,9 +23,9 @@ class ProfileViewController : UIViewController {
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<Profil>(entityName: "Profil")
-         if let user = try? context.fetch(request){
-               profil = user
-        }
+       //  if let profil = try? context.fetch(request){
+      //         profil = profil
+      //  }
     }
            
        

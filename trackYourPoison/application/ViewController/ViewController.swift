@@ -48,8 +48,8 @@ class ViewController: UIViewController {
             profil.gender = "unknown"
         }
         
-        profil.age = Int(ageText.text)
-        profil.weight = Double(weightText.text)
+      //  profil.age = ageText.text
+       // profil.weight = Double(weightText.text!)
          
         appDelegate.saveContext()
         navigationController?.popViewController(animated: true)
