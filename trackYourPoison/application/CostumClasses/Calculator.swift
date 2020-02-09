@@ -5,29 +5,39 @@
 //  Created by Ines Langbauer on 06.02.20.
 //  Copyright © 2020 Ines&Yvonne. All rights reserved.
 //
-
-import Foundation
+import UIKit
+import CoreData
 
 class Calculator {
     
+    var user : [Profil] = []
     
+    init() {
+        let appDel = (UIApplication.shared.delegate as! AppDelegate)
+        let context = appDel.persistentContainer.viewContext
+        let request = NSFetchRequest<Profil>(entityName: "Profil")
+            if let profil = try? context.fetch(request){
+                 user = profil
+             }
+    }
+  
     /*f(t) = N*e^k*t -> t = (ln(f(t)/N)/k)
           f(t) = menge des abgebauten nach der zeit t
           N = menge des eingenommen coffein in gram
           k = -0.23
           t = zeit
           @param coffien -> in mg
-          *
+          */
          func calcCoffin( coffien : Double) -> Double{
              var tau = 3.0
-             if pill {
+            if user[0].pill {
                  tau = tau + 10
              }
-             if pregnant {
+            if user[0].pregnent {
                  tau =  tau + 17
              }
             // if age < 15 {}
-             if zigaretts {
+            if user[0].nikotin {
                  tau = tau / 2
              }
              let clean = log(1/2) / tau
@@ -42,16 +52,16 @@ class Calculator {
           abbau 0,1 -0,2 prommile im blut**/
          func calcAlkohol(level : Double, num : Double) -> Double{
              var liquid = 0.0
-             if gender == .female {
+            if user[0].gender == "female" {
                  liquid = 0.55;
-             }else if gender == .male{
+             }else if user[0].gender == "male"{
                  liquid = 0.68
              }else{
                  liquid = 0.6
              }
-             let pro = (level * num) / (weight * liquid)
+             let pro = (level * num) / (user[0].weight * liquid)
              return pro / 0.1
-       }*/
+       }
 
 }
 

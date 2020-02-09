@@ -43,6 +43,9 @@
 		94F56C4223AA58EE00CA28B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F56C4023AA58EE00CA28B9 /* LaunchScreen.storyboard */; };
 		94F56C4D23AA58EE00CA28B9 /* trackYourPoisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C4C23AA58EE00CA28B9 /* trackYourPoisonTests.swift */; };
 		94F56C5823AA58EE00CA28B9 /* trackYourPoisonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F56C5723AA58EE00CA28B9 /* trackYourPoisonUITests.swift */; };
+		B007845A23F0696A008255CF /* ProfilInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B007845923F0696A008255CF /* ProfilInfoCell.swift */; };
+		B00C812A23EF79C30085E94F /* Profil+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C812823EF79C30085E94F /* Profil+CoreDataClass.swift */; };
+		B00C812B23EF79C30085E94F /* Profil+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C812923EF79C30085E94F /* Profil+CoreDataProperties.swift */; };
 		B0883C6023EC3BD500A903A8 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0883C5F23EC3BD500A903A8 /* Calculator.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +109,9 @@
 		94F56C5323AA58EE00CA28B9 /* trackYourPoisonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trackYourPoisonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F56C5723AA58EE00CA28B9 /* trackYourPoisonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackYourPoisonUITests.swift; sourceTree = "<group>"; };
 		94F56C5923AA58EE00CA28B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B007845923F0696A008255CF /* ProfilInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfilInfoCell.swift; path = trackYourPoison/ProfilInfoCell.swift; sourceTree = SOURCE_ROOT; };
+		B00C812823EF79C30085E94F /* Profil+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profil+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B00C812923EF79C30085E94F /* Profil+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profil+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B0883C5F23EC3BD500A903A8 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,6 +243,8 @@
 			children = (
 				9482CF9023EEBAA600858E60 /* SizeCell.swift */,
 				94D1D01923EF575A00B87364 /* FoodCell.swift */,
+				948FA7CB23ECC69F0050EA06 /* DrinkCell.swift */,
+				B007845923F0696A008255CF /* ProfilInfoCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -408,6 +416,7 @@
 				94EF93AE23CE499700AF445B /* HomeViewController.swift in Sources */,
 				94F40FBE23F05452005DB139 /* Tea+CoreDataClass.swift in Sources */,
 				94F40FCF23F06987005DB139 /* Coffee+CoreDataProperties.swift in Sources */,
+				B007845A23F0696A008255CF /* ProfilInfoCell.swift in Sources */,
 				94EE034923CE4AD500CA203A /* NewFoodViewController.swift in Sources */,
 				94F56C3523AA58EC00CA28B9 /* AppDelegate.swift in Sources */,
 				94F40FC023F05452005DB139 /* Alcohol+CoreDataClass.swift in Sources */,
