@@ -43,13 +43,13 @@ class ViewController: UIViewController {
         if(male){
             profil.gender = "male"
         }else if(female){
-            profil.gender = "femake"
+            profil.gender = "female"
         }else{
             profil.gender = "unknown"
         }
         
       //  profil.age = ageText.text
-       // profil.weight = Double(weightText.text!)
+        // profil.weight = Double(weightText.text!)
          
         appDelegate.saveContext()
         navigationController?.popViewController(animated: true)
@@ -62,7 +62,9 @@ class ViewController: UIViewController {
             }else{
                 smoker = false
             }
-        case 2: if(!male && !female){
+        case 2:print("male")
+            if(!male && !female){
+                print("male")
                 male = true
                 pillButton.isHidden = true
                 pregnantButton.isHidden = true
@@ -76,13 +78,14 @@ class ViewController: UIViewController {
                 pillButton.isEnabled = false
                 pregnantButton.isEnabled = false
             }
-        case 3: if(!male && !female){
+        case 3:print("female")
+            if(!male && !female){
             female = true
             pillButton.isHidden = false
             pregnantButton.isHidden = false
             pillButton.isEnabled = true
             pregnantButton.isEnabled = true
-        }else if(!male && female){
+        }else if(male && !female){
             female = true
             pillButton.isHidden = false
             pregnantButton.isHidden = false
