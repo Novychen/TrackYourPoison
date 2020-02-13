@@ -8,8 +8,16 @@
 
 import Foundation
 import UIKit
-class SizeCell : UICollectionViewCell {
+class SizeCell : UITableViewCell {
     
-    @IBOutlet weak var sizeLabel : UILabel!
+    @IBOutlet weak var foodName: UILabel!
+    @IBOutlet weak var amount: UITextField!
+    @IBOutlet weak var foodImage: UIImageView!
+    @IBOutlet weak var sizeLabel: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+    }
 }

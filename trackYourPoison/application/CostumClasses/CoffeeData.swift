@@ -9,7 +9,6 @@
 import Foundation
 class CoffeeData {
     private var name : [String]
-    private var alcohol : [Double]
     private var coffeine : [Double]
     private var sugar : [Double]
     private var size : [[String]]
@@ -17,22 +16,22 @@ class CoffeeData {
     private var image : [String]
     
     init() {
-        image = ["Coffee_SB_Americano.jpg",
-                "Coffee_SB_Latte.jpg",
+        image = ["Coffee_SB_Americano.png",
+                "Coffee_SB_Latte.png",
                 "Coffee_SB_Mocha.png",
-                "Coffee_SB_Cappucino.jpg",
-                "Coffee_SB_HotChocolate.jpg",
-                "Coffee_SB_Frappuccino_Coffee.jpg",
-                "Coffee_DD_HotChocolate.jpg",
+                "Coffee_SB_Cappucino.png",
+                "Coffee_SB_HotChocolate.png",
+                "Coffee_SB_Frappuccino_Coffee.png",
+                "Coffee_DD_HotChocolate.png",
                 "Coffee_DD_Espresso.png",
                 "Coffee_DD_Cappuccino.png",
                 "Coffee_DD_Machiato.png",
-                "Coffee_DD_Chai.jpg",
-                "Coffee_McD_Cappuccino.jpg",
-                "Coffee_McD_MochaLatta.jpg",
-                "Coffee_McD_Latte.jpg",
-                "Coffee_McD_Aamericano.jpg",
-                "Coffee_McD_HotChoclate.jpg"
+                "Coffee_DD_Chai.png",
+                "Coffee_McD_Cappuccino.png",
+                "Coffee_McD_MochaLatta.png",
+                "Coffee_McD_Latte.png",
+                "Coffee_McD_Americano.png",
+                "Coffee_McD_HotChoclate.png"
         ]
         
         name = ["Starbucks Caffè Americano",
@@ -53,7 +52,6 @@ class CoffeeData {
                  "McDonalds Hot Chocolate"
         ]
         
-        alcohol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         coffeine = [59, 59, 65, 59.1, 5.9, 25.6, 3.1, 40, 40.1, 68.6, 19.3, 30, 35.3, 30, 30, 2.1]
         sugar = [0, 4.9, 8, 4.4, 8.9, 13.1, 12.6, 0, 2.4, 3.4, 13.8, 2.5, 11, 3.2, 0, 12.3]
         kcal = [4, 71, 95, 64, 103, 67, 48, 0, 29, 70, 48, 34, 80, 40, 0, 95]
@@ -78,10 +76,6 @@ class CoffeeData {
     
     public func getName() -> [String] {
         return name
-    }
-    
-    public func getAlcohol() -> [Double] {
-        return alcohol
     }
     
     public func getSugar() -> [Double] {

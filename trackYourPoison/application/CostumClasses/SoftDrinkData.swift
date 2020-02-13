@@ -10,7 +10,6 @@ import Foundation
 class SoftDrinkData {
     
     private var name : [String]
-    private var alcohol : [Double]
     private var coffeine : [Double]
     private var sugar : [Double]
     private var size : [[String]]
@@ -40,7 +39,6 @@ class SoftDrinkData {
                 "Spider Energy Drink",
                 "SPIKE Hardcore Energy"]
         
-        alcohol = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         coffeine = [9.6, 9.6, 9.6, 9.6, 13, 7.9, 2.2, 32, 32, 32, 36, 11.5, 11.5, 11, 0, 10.7, 25, 0, 0, 32.6, 50.7, 73.9]
         sugar = [10.6, 0, 11.1, 10.7, 0, 4.8, 6.9, 11, 0, 0, 0, 0, 11.4, 6.8, 10.3, 11.6, 11, 10.4, 5, 11, 5.9, 0]
         size = [["ml"], ["ml"], ["ml"], ["ml"], ["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"], ["ml"], ["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"]]
@@ -50,10 +48,6 @@ class SoftDrinkData {
     
     public func getName() -> [String] {
         return name
-    }
-    
-    public func getAlcohol() -> [Double] {
-        return alcohol
     }
     
     public func getSugar() -> [Double] {

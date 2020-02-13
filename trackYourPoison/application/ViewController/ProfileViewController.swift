@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ProfileViewController : UITableViewController {
+class ProfileViewController : ViewController {
 
     var user : [Profil] = []
     
@@ -20,30 +20,37 @@ class ProfileViewController : UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        infoTable.delegate = self
+        infoTable.dataSource = self
 
-        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+       let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<Profil>(entityName: "Profil")
          if let profil = try? context.fetch(request){
             user = profil
         }
-        
+    
        // ageField.text = "\(user[0].age)"
-        tableView.reloadData()
+        infoTable.reloadData()
     }
-           
-       override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-              return UITableView.automaticDimension
-          }
-          
-          override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-              return 8
-          }
-          
-          override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-              let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell")!
-             
-              return cell
-          }
+    
+}
+
+extension ProfileViewController : UITableViewDelegate {
+    
+}
+extension ProfileViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell")!
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return user.count
+    }
+    
+    
+   
     
 }

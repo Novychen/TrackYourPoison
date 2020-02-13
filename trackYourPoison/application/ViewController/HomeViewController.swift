@@ -33,12 +33,7 @@ class HomeViewController : UIViewController {
        }
     
     func saveData(context : NSManagedObjectContext) {
-        let drinkEntity = NSEntityDescription.entity(forEntityName: "SoftDrink", in: context)
-        let sweetsEntity = NSEntityDescription.entity(forEntityName: "Sweets", in: context)
-        let coffeeEntity = NSEntityDescription.entity(forEntityName: "Coffee", in: context)
-        let alcoholEntity = NSEntityDescription.entity(forEntityName: "Alcohol", in: context)
-        let teaEntity = NSEntityDescription.entity(forEntityName: "Tea", in: context)
-
+       
         let drinks = SoftDrinkData()
         let sweets = SweetsData()
         let coffee = CoffeeData()
@@ -46,61 +41,55 @@ class HomeViewController : UIViewController {
         var name = drinks.getName()
         var coffeine = drinks.getCoffeine()
         var sugar = drinks.getSugar()
-        var alcohol = drinks.getAlcohol()
         var size = drinks.getSize()
         var kcal = drinks.getKcal()
         
         for (index, _) in name.enumerated(){
-            let food = NSManagedObject(entity: drinkEntity!, insertInto: context)
-            food.setValue(name[index], forKey: "name")
-            food.setValue(sugar[index], forKey: "sugar")
-            food.setValue(coffeine[index], forKey: "coffeine")
-            food.setValue(alcohol[index], forKey: "alcohol")
-            food.setValue(size[index], forKey: "sizesAvailable")
-            food.setValue(kcal[index], forKey: "kcal")
+            let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
+            food.name = name[index]
+            food.sugar = sugar[index]
+            food.coffeine = coffeine[index]
+            food.sizesAvailable = size[index] as NSObject
+            food.kcal = Int32(kcal[index])
+            food.type = "softDrink"
         }
-        
-        do {
-            try context.save()
-            print("saved data")
-        } catch let error as NSError { print("Could not save. \(error), \(error.userInfo)") }
-        
         
         name = sweets.getName()
         coffeine = sweets.getCoffeine()
         sugar = sweets.getSugar()
-        alcohol = sweets.getAlcohol()
+        var alcohol = sweets.getAlcohol()
         size = sweets.getSize()
         kcal = sweets.getKcal()
-        
+        var image = sweets.getImage()
+    
         for (index, _) in name.enumerated(){
-            let food = NSManagedObject(entity: sweetsEntity!, insertInto: context)
-            food.setValue(name[index], forKey: "name")
-            food.setValue(sugar[index], forKey: "sugar")
-            food.setValue(coffeine[index], forKey: "coffeine")
-            food.setValue(alcohol[index], forKey: "alcohol")
-            food.setValue(size[index], forKey: "sizesAvailable")
-            food.setValue(kcal[index], forKey: "kcal")
+             let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
+            food.name = name[index]
+            food.sugar = sugar[index]
+            food.coffeine = coffeine[index]
+            food.alcohol = alcohol[index]
+            food.sizesAvailable = size[index] as NSObject
+            food.kcal = Int32(kcal[index])
+            food.image = image[index]
+            food.type = "sweets"
         }
-        do {
-            try context.save()
-            print("saved data")
-        } catch let error as NSError { print("Could not save. \(error), \(error.userInfo)") }
         
+        name = coffee.getName()
         coffeine = coffee.getCoffeine()
         sugar = coffee.getSugar()
-        alcohol = coffee.getAlcohol()
         size = coffee.getSize()
         kcal = coffee.getKcal()
+        image = coffee.getImage()
         
         for (index, _) in name.enumerated(){
-            let food = NSManagedObject(entity: coffeeEntity!, insertInto: context)
-            food.setValue(name[index], forKey: "name")
-            food.setValue(sugar[index], forKey: "sugar")
-            food.setValue(coffeine[index], forKey: "coffeine")
-            food.setValue(alcohol[index], forKey: "alcohol")
-            food.setValue(size[index], forKey: "sizesAvailable")
-            food.setValue(kcal[index], forKey: "kcal")
+             let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
+            food.name = name[index]
+            food.sugar = sugar[index]
+            food.coffeine = coffeine[index]
+            food.sizesAvailable = size[index] as NSObject
+            food.kcal = Int32(kcal[index])
+            food.image = image[index]
+            food.type = "coffee"
         }
         
         do {

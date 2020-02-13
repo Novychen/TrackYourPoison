@@ -11,9 +11,17 @@ import CoreData
 
 class AddFoodViewController : UIViewController {
     
-    var food : Food = Food()
+    var food : [Food] = []
+    var selectedFood : [Food] = []
+    var softdrinkList : [Food] = []
+    var coffeeList : [Food] = []
+    var sweetsList : [Food] = []
+    var alcoholList : [Food] = []
+    var teaList : [Food] = []
+
     var foodChosen : Int = 0
     var foodOptions = ["softdrink", "coffee", "sweets", "alcohol", "tea"]
+    
     final let SOFTDRINK = 0
     final let CAFFEE = 1
     final let SWEETS = 2
@@ -23,10 +31,26 @@ class AddFoodViewController : UIViewController {
     @IBOutlet weak var foodChoice: UIButton!
     @IBOutlet weak var foodList: UICollectionView!
     @IBOutlet weak var foodOptionTable: UITableView!
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBAction func foodChosen(_ sender: Any) {
         self.foodOptionTable.isHidden = false
     }
+    
+    @IBAction func saveFood(_ sender: Any) {
+        self.performSegue(withIdentifier: "SizeSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SizeSegue" {
+            if let detailsVC = segue.destination as? SizeViewController {
+                    detailsVC.chosenFood = selectedFood
+            }
+        }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         foodList.allowsMultipleSelection = true
@@ -46,35 +70,20 @@ class AddFoodViewController : UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
+
+        let request = NSFetchRequest<Food>(entityName: "Food")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        if let data = try? context.fetch(request){
+            self.food = data
+        }
         
-        switch foodChosen {
-        case SOFTDRINK:
-            let request = NSFetchRequest<SoftDrink>(entityName: "SoftDrink")
-            if let data = try? context.fetch(request){
-                self.food.softdrinks = data
-            }
-        case CAFFEE:
-            let request = NSFetchRequest<Coffee>(entityName: "Coffee")
-            if let data = try? context.fetch(request){
-                self.food.coffee = data
-            }
-        case SWEETS:
-            let request = NSFetchRequest<Sweets>(entityName: "Sweets")
-            if let data = try? context.fetch(request){
-                self.food.sweets = data
-            }
-        case ALCOHOL:
-            let request = NSFetchRequest<Alcohol>(entityName: "Alcohol")
-            if let data = try? context.fetch(request){
-                self.food.alcohol = data
-            }
-        case TEA:
-            let request = NSFetchRequest<Tea>(entityName: "Tea")
-            if let data = try? context.fetch(request){
-                self.food.tea = data
-            }
-        default:
-            print("No such entity available")
+        for x in food.enumerated() {
+            if x.element.type == "softDrink" { softdrinkList.append(x.element) }
+            else if x.element.type == "coffee" { coffeeList.append(x.element) }
+            else if x.element.type == "sweets" { sweetsList.append(x.element) }
+            else if x.element.type == "tea" { teaList.append(x.element) }
+            else if x.element.type == "alcohol" { alcoholList.append(x.element) }
         }
     }
 }
@@ -97,7 +106,6 @@ extension AddFoodViewController: UITableViewDataSource{
         foodChoice.setTitle(cell?.textLabel?.text, for: .normal)
         if(foodChosen != indexPath.row){
             foodChosen = indexPath.row
-            requestData()
             foodList.reloadData()
         }
         self.foodOptionTable.isHidden = true
@@ -116,39 +124,110 @@ extension AddFoodViewController: UICollectionViewDataSource {
 
    
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = foodList.cellForItem(at: indexPath) as! FoodCell
-        if foodChosen == CAFFEE {
-            let coffee = food.coffee[indexPath.row]
-            if !coffee.selected {
-                coffee.selected = true
-                cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
-            } else {
-                coffee.selected = false
-                cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
-            }
-         
-        }
-
+        var cell = foodList.cellForItem(at: indexPath) as! FoodCell
+        cell = setSelected(cell: cell, indexPath: indexPath)
+    }
+    
+    /*
+     * Sets the "selected" status for each category 
+     */
+    func setSelected(cell : FoodCell, indexPath : IndexPath) -> FoodCell{
         
+        switch foodChosen {
+            case SOFTDRINK:
+                let drink = softdrinkList[indexPath.row]
+                if !drink.selected {
+                    drink.selected = true
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+                    selectedFood.append(drink)
+                } else {
+                    drink.selected = false
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+                    if let index = selectedFood.firstIndex(of: drink) {
+                        selectedFood.remove(at: index)
+                    }
+                }
+            case CAFFEE:
+                let coffee = coffeeList[indexPath.row]
+                if !coffee.selected {
+                    coffee.selected = true
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+                    selectedFood.append(coffee)
+                } else {
+                    coffee.selected = false
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+                    if let index = selectedFood.firstIndex(of: coffee) {
+                       selectedFood.remove(at: index)
+                    }
+                }
+            case SWEETS:
+                let sweets = sweetsList[indexPath.row]
+                if !sweets.selected {
+                    sweets.selected = true
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+                    selectedFood.append(sweets)
+                } else {
+                    sweets.selected = false
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+                    if let index = selectedFood.firstIndex(of: sweets) {
+                       selectedFood.remove(at: index)
+                    }
+                }
+            case ALCOHOL:
+                let alcohol = alcoholList[indexPath.row]
+                if !alcohol.selected {
+                    alcohol.selected = true
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+                    selectedFood.append(alcohol)
+                } else {
+                    alcohol.selected = false
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+                    if let index = selectedFood.firstIndex(of: alcohol) {
+                        selectedFood.remove(at: index)
+                    }
+                }
+            case TEA:
+                let tea = teaList[indexPath.row]
+                if !tea.selected {
+                    tea.selected = true
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+                    selectedFood.append(tea)
+                } else {
+                    tea.selected = false
+                    cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+                    if let index = selectedFood.firstIndex(of: tea) {
+                       selectedFood.remove(at: index)
+                    }
+                }
+            default:
+                print("Unkown type")
+            }
+        return cell
     }
 
+    /*
+     * Returns the number of cells that will be displayed (changes as the category changes)
+     */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch foodChosen {
-        case 0:
-            return food.softdrinks.count
-        case 1:
-            return food.coffee.count
-        case 2:
-            return food.sweets.count
-        case 3:
-            return food.alcohol.count
-        case 4:
-            return food.tea.count
-        default:
-            return 0
+            case SOFTDRINK:
+                return softdrinkList.count
+            case CAFFEE:
+                return coffeeList.count
+            case SWEETS:
+                return sweetsList.count
+            case ALCOHOL:
+                return alcoholList.count
+            case TEA:
+                return teaList.count
+            default:
+                return 0
         }
     }
 
+    /*
+     * Sets up a FoodCell and choose the coresponding content
+     */
     func setFoodCell(indexPath : IndexPath, collectionView: UICollectionView) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCell", for: indexPath) as! FoodCell
         if(foodChosen == 0) { setDrinkCell(cell: cell, indexPath: indexPath) }
@@ -160,8 +239,11 @@ extension AddFoodViewController: UICollectionViewDataSource {
         return cell
     }
     
+    /*
+     * Sets up a FoodCell with a SoftDrink
+     */
     func setDrinkCell(cell : FoodCell, indexPath : IndexPath) {
-        let drink = food.softdrinks[indexPath.row]
+        let drink = softdrinkList[indexPath.row]
         cell.foodName.text = drink.name
         let sugar = drink.sugar
         let coffeine = drink.coffeine
@@ -176,14 +258,19 @@ extension AddFoodViewController: UICollectionViewDataSource {
         } else {
             cell.foodInfo.text = "per 100 ml \(kcal) kcal with no sugar"
         }
-
+        if drink.selected {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+        } else {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+        }
     }
     
+    /*
+     * Sets up a FoodCell with a Coffee
+     */
     func setCoffeeCell(cell : FoodCell, indexPath : IndexPath) {
-        print("Coffee was chosen")
-        print("Index: \(indexPath.row)")
         
-        let drink : Coffee = food.coffee[indexPath.row]
+        let drink = coffeeList[indexPath.row]
         cell.foodName.text = drink.name
         let sugar = drink.sugar
         let coffeine = drink.coffeine
@@ -203,14 +290,14 @@ extension AddFoodViewController: UICollectionViewDataSource {
         } else {
             cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
         }
-        
-        let data : CoffeeData = CoffeeData()
-        cell.foodImage.image = UIImage(named: data.getImage()[indexPath.row])
-        
+        cell.foodImage.image = UIImage(named: drink.image ?? " ")
     }
     
+    /*
+     * Sets up a FoodCell with a Sweet
+     */
     func setSweetsCell(cell : FoodCell, indexPath : IndexPath){
-        let drink = food.sweets[indexPath.row]
+        let drink = sweetsList[indexPath.row]
         cell.foodName.text = drink.name
         let sugar = drink.sugar
         let coffeine = drink.coffeine
@@ -225,8 +312,12 @@ extension AddFoodViewController: UICollectionViewDataSource {
         } else {
             cell.foodInfo.text = "per 100 g \(kcal) kcal with no sugar"
         }
-        let data : SweetsData = SweetsData()
-        //cell.foodImage.image = UIImage(named: data.getImage()[indexPath.row])
+        if drink.selected {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+        } else {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+        }
+        cell.foodImage.image = UIImage(named: drink.image ?? " ")
     }
     
 }

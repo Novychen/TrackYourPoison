@@ -14,6 +14,8 @@ class SweetsData {
     private var sugar : [Double]
     private var size : [[String]]
     private var kcal : [Int]
+    private var image : [String]
+
     
     init() {
         name = ["KitKat White", "KitKat Ruby", "KitKat Matcha", "KitKat Classic",
@@ -22,6 +24,13 @@ class SweetsData {
                 "Mirabell Mozart ball", "Niemetz Schwedenbombe",
                 "Kinder Suprise", "Twix", "Nutella"
                 ]
+        
+        image = ["Sweets_KitKat_White.png", "Sweets_KitKat_Ruby.png", "Sweets_KitKat_Matcha.png", "Sweets_KitKat_Classic.png",
+                "Sweets_Oreo_Classic.png", "Sweets_Oreo_Golden.png",
+                "Sweets_Haribo_Goldbears.png", "Sweets_Haribo_happycola.png", "Sweets_Haribo_twinsnakes.png", "Sweets_Haribo_happy-cherries.png", "Sweets_Haribo_frogs.png",
+                "Sweets_Mozartkugel", "Sweets_Niemetz_Schwedenbombe.png",
+                "Sweets_Kinder_Überraschungsei.png", "Sweets_Twix", "Sweets_Nutella.png"
+        ]
        
         alcohol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         coffeine = [14, 14, 14, 14, 11.8, 11.8, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7]
@@ -69,6 +78,10 @@ class SweetsData {
     
     func getKcal() -> [Int] {
         return kcal
+    }
+    
+    func getImage() -> [String] {
+        return image
     }
 }
 
