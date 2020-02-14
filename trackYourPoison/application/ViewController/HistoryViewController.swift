@@ -22,8 +22,16 @@ class HistoryViewController : UIViewController {
         super.viewDidLoad()
         historyTable.delegate = self
         historyTable.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.evening.removeAll()
+        self.noon.removeAll()
+        self.morning.removeAll()
         requestData()
         sortData()
+        historyTable.reloadData()
     }
     
     func sortData() {
@@ -82,7 +90,27 @@ extension HistoryViewController : UITableViewDataSource {
     }
 
         
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<Consumed>(entityName: "Consumed")
+            if let items = try? context.fetch(request) {
+                for x in items {
+                    if x.food?.name == items[indexPath.row].food?.name {
+                        context.delete(x)
+                        appDelegate.saveContext()
+                    }
+                }
+            }
+            self.evening.removeAll()
+            self.noon.removeAll()
+            self.morning.removeAll()
+            requestData()
+            sortData()
+            tableView.reloadData()
+        }
+    }
     
     
     

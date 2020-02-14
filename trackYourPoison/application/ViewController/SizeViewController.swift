@@ -42,9 +42,10 @@ class SizeViewController : UIViewController {
             let food = NSEntityDescription.insertNewObject(forEntityName: "Consumed", into: context) as! Consumed
             food.food = item.element
             food.time = time
+            item.element.selected = false
         }
+        let test = AddFoodViewController()
         appDelegate.saveContext()
-        
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -80,6 +81,18 @@ extension SizeViewController: UITableViewDataSource{
         cell.sizeLabel.text = sizeOptions[0]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            for (index, value) in chosenFood.enumerated() {
+                    if value.name == chosenFood[indexPath.row].name {
+                        value.selected = false
+                        chosenFood.remove(at: index)
+                    }
+                }
+            tableView.reloadData()
+        }
     }
 }
 

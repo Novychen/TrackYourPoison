@@ -57,6 +57,15 @@ class AddFoodViewController : UIViewController {
         requestData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        selectedFood.removeAll()
+        for x in food {
+            x.selected = false
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         foodList.delegate = self

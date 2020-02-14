@@ -20,9 +20,8 @@ class SoftDrinkData {
                 "Coca-Cola Zero",
                 "Coca-Cola Vanilla",
                 "Coca-Cola Cherry", 
-                "Coca-Cola Light",
+                "Coca-Cola Diet",
                 "Coca-Cola Life",
-                "Nestea Iced Tea",
                 "Red Bull Classic",
                 "Red Bull Total Zero",
                 "Red Bull sugarfree",
@@ -39,11 +38,11 @@ class SoftDrinkData {
                 "Spider Energy Drink",
                 "SPIKE Hardcore Energy"]
         
-        coffeine = [9.6, 9.6, 9.6, 9.6, 13, 7.9, 2.2, 32, 32, 32, 36, 11.5, 11.5, 11, 0, 10.7, 25, 0, 0, 32.6, 50.7, 73.9]
-        sugar = [10.6, 0, 11.1, 10.7, 0, 4.8, 6.9, 11, 0, 0, 0, 0, 11.4, 6.8, 10.3, 11.6, 11, 10.4, 5, 11, 5.9, 0]
-        size = [["ml"], ["ml"], ["ml"], ["ml"], ["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"], ["ml"], ["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"]]
+        coffeine = [9.6, 9.6, 9.6, 9.6, 13, 7.9, 32, 32, 32, 36, 11.5, 11.5, 11, 0, 10.7, 25, 0, 0, 32.6, 50.7, 73.9]
+        sugar = [10.6, 0, 11.1, 10.7, 0, 4.8, 11, 0, 0, 0, 0, 11.4, 6.8, 10.3, 11.6, 11, 10.4, 5, 11, 5.9, 0]
+        size = [["ml"], ["ml"], ["ml"], ["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"], ["ml"], ["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"]]
         
-        kcal = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        kcal = [39,0,34,36,0,25,45,0,0,47,27,1,43,28,42,42,44,39,47,25,0]
     }
     
     public func getName() -> [String] {

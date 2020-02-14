@@ -63,6 +63,7 @@
 		946DA4AA23CE4D0A0030309D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9482CF9023EEBAA600858E60 /* SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SizeCell.swift; path = trackYourPoison/application/SizeCell.swift; sourceTree = SOURCE_ROOT; };
+		949B37D423F5D85700C2E929 /* ToDo.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ToDo.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		94C6AFA723EF12E6009D5DC8 /* CoffeeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeData.swift; sourceTree = "<group>"; };
 		94C6AFA923EF12F1009D5DC8 /* AlcoholData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholData.swift; sourceTree = "<group>"; };
 		94C6AFAB23EF1302009D5DC8 /* SweetsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetsData.swift; sourceTree = "<group>"; };
@@ -233,6 +234,7 @@
 				94C6AFAD23EF130E009D5DC8 /* TeaData.swift */,
 				9407B4FB23ECB4C800AAFEE5 /* SoftDrinkData.swift */,
 				B0883C5F23EC3BD500A903A8 /* Calculator.swift */,
+				949B37D423F5D85700C2E929 /* ToDo.playground */,
 			);
 			path = CostumClasses;
 			sourceTree = "<group>";
