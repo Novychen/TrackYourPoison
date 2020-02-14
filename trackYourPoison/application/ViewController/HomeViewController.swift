@@ -17,6 +17,9 @@ class HomeViewController : UIViewController {
     var timer : Timer?
     var timealc = 10000.0
     var timecof = 20000.0
+    @IBOutlet weak var maxSuger: UILabel!
+    @IBOutlet weak var maxAlkohol: UILabel!
+    @IBOutlet weak var maxCoffiene: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -28,6 +31,12 @@ class HomeViewController : UIViewController {
             saveData(context : context)
             appDelegate.saveContext()
         }
+        let calc = Calculator()
+               timealc = calc.calcAlkohol()
+               timecof = calc.calcCoffin()
+               maxSuger.text = String("\( calc.maxSugar())%")
+               maxAlkohol.text = String("\( calc.maxAlkohol())%")
+               maxCoffiene.text = String("\( calc.maxCoffiene())%")
          timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
        }
