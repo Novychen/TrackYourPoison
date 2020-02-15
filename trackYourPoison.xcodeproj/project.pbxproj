@@ -14,6 +14,7 @@
 		946DA4AB23CE4D0A0030309D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DA4AA23CE4D0A0030309D /* HistoryViewController.swift */; };
 		946DA4AD23CE4E0E0030309D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */; };
 		9482CF9123EEBAA600858E60 /* SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9482CF9023EEBAA600858E60 /* SizeCell.swift */; };
+		94C46D4E23F8075B00885145 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C46D4D23F8075B00885145 /* NewUserViewController.swift */; };
 		94C6AFA823EF12E6009D5DC8 /* CoffeeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AFA723EF12E6009D5DC8 /* CoffeeData.swift */; };
 		94C6AFAA23EF12F1009D5DC8 /* AlcoholData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AFA923EF12F1009D5DC8 /* AlcoholData.swift */; };
 		94C6AFAC23EF1302009D5DC8 /* SweetsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6AFAB23EF1302009D5DC8 /* SweetsData.swift */; };
@@ -66,6 +67,7 @@
 		946DA4AA23CE4D0A0030309D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9482CF9023EEBAA600858E60 /* SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SizeCell.swift; path = trackYourPoison/application/SizeCell.swift; sourceTree = SOURCE_ROOT; };
+		94C46D4D23F8075B00885145 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		94C6AFA723EF12E6009D5DC8 /* CoffeeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeData.swift; sourceTree = "<group>"; };
 		94C6AFA923EF12F1009D5DC8 /* AlcoholData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholData.swift; sourceTree = "<group>"; };
 		94C6AFAB23EF1302009D5DC8 /* SweetsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetsData.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				946DA4AC23CE4E0E0030309D /* ProfileViewController.swift */,
 				94CB5B4423EC84E400F9F0FC /* TabBarController.swift */,
 				944B147523F09DBD00EBEB55 /* SizeViewController.swift */,
+				94C46D4D23F8075B00885145 /* NewUserViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				94D0003F23F1D163006D4BE0 /* Profil+CoreDataProperties.swift in Sources */,
 				9482CF9123EEBAA600858E60 /* SizeCell.swift in Sources */,
 				94CB5B4523EC84E400F9F0FC /* TabBarController.swift in Sources */,
+				94C46D4E23F8075B00885145 /* NewUserViewController.swift in Sources */,
 				94C6AFAC23EF1302009D5DC8 /* SweetsData.swift in Sources */,
 				94EEBB6223F44A6B00DB4704 /* Consumed+CoreDataProperties.swift in Sources */,
 				945FCB8923F7360700A502AF /* Food+CoreDataClass.swift in Sources */,

@@ -20,6 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var appStartCount = UserDefaults.standard.integer(forKey: AppDelegate.appStartCount)
         appStartCount += 1
         UserDefaults.standard.set(appStartCount, forKey: AppDelegate.appStartCount)
+        
+        if appStartCount == 1 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil) //Write your storyboard name
+            let viewController = storyboard.instantiateViewController(withIdentifier: "NewUserViewController") as! NewUserViewController
+            self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 

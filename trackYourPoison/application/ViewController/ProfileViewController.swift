@@ -31,6 +31,7 @@ class ProfileViewController : ViewController {
         let request = NSFetchRequest<Profil>(entityName: "Profil")
          if let profil = try? context.fetch(request){
             user = profil
+            print(user)
         }
         if !user.isEmpty{
             nameField.text = String("\(user[0].name!)")
@@ -48,6 +49,27 @@ class ProfileViewController : ViewController {
                 pregant.isHidden = false
             }else{pregant.isHidden = true}
         }
+    }
+    
+    override func viewDidLoad() {
+        userPicture.image = loadImageFromDiskWith(fileName: "user_profile_photo")
+    }
+    
+    func loadImageFromDiskWith(fileName: String) -> UIImage? {
+        
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        if let dirPath = paths.first {
+            let imageUrl = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
+            let image = UIImage(contentsOfFile: imageUrl.path)
+            return image
+            
+        }
+        
+        return nil
     }
     
 }

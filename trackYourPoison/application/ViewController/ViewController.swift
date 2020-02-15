@@ -51,8 +51,6 @@ class ViewController: UIViewController {
    
     @IBAction func done(_ sender: Any) {
         
-        
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let profil = Profil(context: context)

@@ -25,14 +25,6 @@ class HomeViewController : UIViewController {
      
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let defaults = UserDefaults.standard
-        let start = defaults.integer(forKey: AppDelegate.appStartCount)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        if (start == 1) {
-            saveData(context : context)
-            appDelegate.saveContext()
-        }
         
         setAlkoholTimer()
         setCoffieneTimer()
@@ -50,6 +42,14 @@ class HomeViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let defaults = UserDefaults.standard
+        let start = defaults.integer(forKey: AppDelegate.appStartCount)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        if (start == 1) {
+            saveData(context : context)
+            appDelegate.saveContext()
+        }
     }
     
     func saveData(context : NSManagedObjectContext) {

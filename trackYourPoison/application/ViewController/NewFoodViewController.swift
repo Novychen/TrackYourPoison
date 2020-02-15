@@ -13,8 +13,6 @@ class NewFoodViewController : UIViewController, UINavigationControllerDelegate, 
     
     let categories = ["softdrink", "coffee", "sweets", "alcohol", "tea"]
     var chosenCategory = 0
-    var imageTitle : String = ""
-    var defaultImage = true
     @IBOutlet weak var categoryButton: UIButton!
     
     @IBOutlet weak var sugarLabel: UILabel!
@@ -31,38 +29,7 @@ class NewFoodViewController : UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var size: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var categoryTable: UITableView!
-    @IBOutlet weak var defaultImageButton: UIButton!
-    @IBOutlet weak var userImageButton: UIButton!
-    
-    @IBAction func pickeddefaultImage(_ sender: Any) {
-        defaultImage = true
-        defaultImageButton.setImage(UIImage(named: "Image_selected.png"), for: .normal)
-        userImageButton.setImage(UIImage(named: "Image.png"), for: .normal)
-    }
-    
-    
-    @IBAction func pickedUserImage(_ sender: Any) {
-        defaultImage = false
-        defaultImageButton.setImage(UIImage(named: "Image.png"), for: .normal)
-        userImageButton.setImage(UIImage(named: "Image_selected.png"), for: .normal)
-
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
-        self.present(image, animated: true)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            userImageButton.setBackgroundImage(image, for: .normal)
-        } else {
-            let alert = UIAlertController(title: "Error", message: "There seems to be a problem with this image. Please pick another one", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-            self.present(alert, animated: true)
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
+   
     
     @IBAction func save(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -77,9 +44,16 @@ class NewFoodViewController : UIViewController, UINavigationControllerDelegate, 
         food.sugar = Double(sugarTextField.text ?? "0") ?? 0
         food.coffeine = Double(coffeineTextField.text ?? "0") ?? 0
         food.kcal = Int32(kcalTextField.text ?? "0") ?? 0
-
-        if defaultImage {
-            food.image = imageTitle
+        if chosenCategory == 0 {
+            food.image = "softdrink.png"
+        } else if chosenCategory == 1 {
+            food.image = "coffee.png"
+        } else if chosenCategory == 2 {
+            food.image = "sweets.png"
+        } else if chosenCategory == 3 {
+            food.image = "alcohol.png"
+        } else if chosenCategory == 4 {
+            food.image = "tea.png"
         }
         food.kcal = 0
         food.type = categories[chosenCategory]
@@ -117,9 +91,6 @@ class NewFoodViewController : UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoryTable.isHidden = true
-        
-        defaultImageButton.setImage(UIImage(named: "Image_selected.png"), for: .normal)
-        defaultImageButton.setBackgroundImage( UIImage(named: "softdrink.png"), for: .normal)
 
         categoryTable.delegate = self
         categoryTable.dataSource = self
@@ -144,24 +115,6 @@ extension NewFoodViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         if(chosenCategory != indexPath.row){
             chosenCategory = indexPath.row
-        }
-        if defaultImage {
-            if chosenCategory == 0 {
-                defaultImageButton.setBackgroundImage( UIImage(named: "softdrink.png"), for: .normal)
-                imageTitle = "softdrink.png"
-            } else if chosenCategory == 1 {
-                defaultImageButton.setBackgroundImage( UIImage(named: "coffee.png"), for: .normal)
-                imageTitle = "coffee.png"
-            } else if chosenCategory == 2 {
-                defaultImageButton.setBackgroundImage( UIImage(named: "sweets.png"), for: .normal)
-                imageTitle = "sweets.png"
-            } else if chosenCategory == 3 {
-                defaultImageButton.setBackgroundImage( UIImage(named: "alcohol.png"), for: .normal)
-                imageTitle = "alcohol.png"
-            } else if chosenCategory == 4 {
-                defaultImageButton.setBackgroundImage( UIImage(named: "tea.png"), for: .normal)
-                imageTitle = "tea.png"
-            }
         }
         categoryButton.setTitle(categories[chosenCategory], for: .normal)
         self.categoryTable.isHidden = true

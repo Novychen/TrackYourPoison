@@ -45,7 +45,6 @@ class SizeViewController : UIViewController {
             food.time = time
             item.element.selected = false
             food.food?.amount = amountOfchosenFood[item.offset]
-            print("name: \(item.element.name) amount: \(amountOfchosenFood[item.offset])")
         }
         appDelegate.saveContext()
         navigationController?.popViewController(animated: true)
@@ -114,7 +113,6 @@ extension SizeViewController {
 
 extension SizeViewController : UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        // save the text in the map using the stored row in the tag field
         amountOfchosenFood[textField.tag] = Double(textField.text ?? "0") ?? 0
     }
 }
