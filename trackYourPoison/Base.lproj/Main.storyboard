@@ -161,7 +161,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nEJ-pc-acl">
-                                <rect key="frame" x="0.0" y="191.66666666666669" width="375" height="590.33333333333326"/>
+                                <rect key="frame" x="0.0" y="193" width="375" height="589"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oBk-Lq-LbQ">
                                     <size key="itemSize" width="240" height="350"/>
@@ -171,7 +171,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FoodCell" id="b9e-Ze-5ij" customClass="FoodCell" customModule="trackYourPoison" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45" width="350" height="500"/>
+                                        <rect key="frame" x="0.0" y="44.666666666666664" width="350" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
@@ -218,19 +218,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" placeholder="Search ..." translatesAutoresizingMaskIntoConstraints="NO" id="QoK-81-SiG">
-                                <rect key="frame" x="0.0" y="181.66666666666666" width="375" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                                <connections>
-                                    <outlet property="delegate" destination="nEJ-pc-acl" id="JJs-Xh-CoL"/>
-                                </connections>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLv-NW-R4F">
                                 <rect key="frame" x="165" y="747" width="45" height="45"/>
                                 <constraints>
@@ -280,8 +267,6 @@
                             <constraint firstItem="sLv-NW-R4F" firstAttribute="centerX" secondItem="16q-Vj-ezk" secondAttribute="centerX" id="8OO-kA-CHg"/>
                             <constraint firstItem="cTw-Y9-SGv" firstAttribute="leading" secondItem="Lk6-GX-Dv5" secondAttribute="leading" constant="16" id="Bmp-rY-w95"/>
                             <constraint firstItem="2lD-Ql-y4Z" firstAttribute="leading" secondItem="cTw-Y9-SGv" secondAttribute="trailing" constant="6" id="H11-VD-olr"/>
-                            <constraint firstItem="nEJ-pc-acl" firstAttribute="top" secondItem="QoK-81-SiG" secondAttribute="top" constant="10" id="K50-Id-cjd"/>
-                            <constraint firstItem="QoK-81-SiG" firstAttribute="trailing" secondItem="Lk6-GX-Dv5" secondAttribute="trailing" id="P5X-pS-wEa"/>
                             <constraint firstItem="Lk6-GX-Dv5" firstAttribute="trailing" secondItem="x3r-iH-cch" secondAttribute="trailing" constant="50" id="PiW-kd-lky"/>
                             <constraint firstItem="nEJ-pc-acl" firstAttribute="leading" secondItem="Lk6-GX-Dv5" secondAttribute="leading" id="Qhb-Ka-cc2"/>
                             <constraint firstItem="cTw-Y9-SGv" firstAttribute="top" secondItem="Lk6-GX-Dv5" secondAttribute="top" constant="40" id="ZkC-bC-5RA"/>
@@ -289,9 +274,8 @@
                             <constraint firstAttribute="bottom" secondItem="sLv-NW-R4F" secondAttribute="bottom" constant="20" id="ikE-p7-V61"/>
                             <constraint firstItem="Fi0-kY-iNE" firstAttribute="leading" secondItem="2lD-Ql-y4Z" secondAttribute="trailing" constant="4" id="j33-J5-4ZP"/>
                             <constraint firstItem="Fi0-kY-iNE" firstAttribute="centerY" secondItem="2lD-Ql-y4Z" secondAttribute="centerY" constant="2" id="qPL-Mv-kwP"/>
-                            <constraint firstItem="QoK-81-SiG" firstAttribute="top" secondItem="cTw-Y9-SGv" secondAttribute="bottom" constant="20" id="rKa-Td-72o"/>
-                            <constraint firstItem="QoK-81-SiG" firstAttribute="leading" secondItem="Lk6-GX-Dv5" secondAttribute="leading" id="uck-G6-fPv"/>
                             <constraint firstItem="sLv-NW-R4F" firstAttribute="bottom" secondItem="nEJ-pc-acl" secondAttribute="bottom" constant="10" id="x6G-s5-BrI"/>
+                            <constraint firstItem="nEJ-pc-acl" firstAttribute="top" secondItem="2lD-Ql-y4Z" secondAttribute="bottom" constant="25" id="z8w-88-rfQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lk6-GX-Dv5"/>
                     </view>
@@ -837,12 +821,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" xx%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8B-Jp-08I">
-                                <rect key="frame" x="157" y="300.33333333333331" width="61" height="34.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coffeine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC4-SS-OI2">
                                 <rect key="frame" x="156.66666666666666" y="335" width="62" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -872,6 +850,12 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xh" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-lT-Njf">
                                 <rect key="frame" x="80" y="173" width="32" height="34.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" xx%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8B-Jp-08I">
+                                <rect key="frame" x="157" y="300" width="61" height="34.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -925,8 +909,8 @@
                     <connections>
                         <outlet property="alcoholTimer" destination="kKS-lT-Njf" id="6za-p9-qRT"/>
                         <outlet property="coffeineTimer" destination="CIK-XF-FU3" id="D5x-dF-okD"/>
-                        <outlet property="maxAlkohol" destination="T8B-Jp-08I" id="Ysh-kg-iXc"/>
-                        <outlet property="maxCoffiene" destination="6Nk-0N-m38" id="q7j-ZD-CN6"/>
+                        <outlet property="maxAlkohol" destination="6Nk-0N-m38" id="RYE-O8-hJi"/>
+                        <outlet property="maxCoffiene" destination="T8B-Jp-08I" id="9ag-Ob-AA1"/>
                         <outlet property="maxSuger" destination="y24-vt-e0T" id="zmH-zj-w90"/>
                     </connections>
                 </viewController>

@@ -15,11 +15,13 @@ class HomeViewController : UIViewController {
     @IBOutlet weak var alcoholTimer: UILabel!
     @IBOutlet weak var coffeineTimer: UILabel!
     var timer : Timer!
-    var timealc = 10000.0
-    var timecof = 20000.0
+
     @IBOutlet weak var maxSuger: UILabel!
+    
     @IBOutlet weak var maxAlkohol: UILabel!
+    
     @IBOutlet weak var maxCoffiene: UILabel!
+    
     var eventDate : Date = Date()
     var eventDateCoffiene : Date = Date()
      
@@ -39,14 +41,11 @@ class HomeViewController : UIViewController {
         
         
         
-        
-        
-//               timealc = calc.calcAlkohol()
-//               timecof = calc.calcCoffin()
+
         let calc = Calculator()
-               maxSuger.text = String("\( calc.maxSugar())%")
-               maxAlkohol.text = String("\( calc.maxAlkohol())%")
-               maxCoffiene.text = String("\( calc.maxCoffiene())%")
+        maxSuger.text = String("\( calc.maxSugar().rounded())%")
+        maxAlkohol.text = String("\( calc.maxAlkohol().rounded())%")
+        maxCoffiene.text = String("\( calc.maxCoffiene().rounded())%")
                 timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true) // Repeat "func Update() " every second and update the label
 
         
@@ -128,7 +127,8 @@ class HomeViewController : UIViewController {
          let date = Date()
          let components = userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: date)
          let currentDate = userCalendar.date(from: components)!
-        
+
+        //print("current date\(currentDate)")
         
          // Set Event Date
 //         var eventDateComponents = DateComponents()
@@ -144,11 +144,11 @@ class HomeViewController : UIViewController {
         
          
          // Change the seconds to days, hours, minutes and seconds
-         let timeLeft = userCalendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: eventDate)
-        
+         let timeLeftAkl = userCalendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: eventDate)
+        let timeLeftCof = userCalendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: eventDateCoffiene)
          // Display Countdown
-        alcoholTimer.text = "\(timeLeft.hour!): \(timeLeft.minute!): \(timeLeft.second!)s"
-         
+        alcoholTimer.text = "\(timeLeftAkl.hour!): \(timeLeftAkl.minute!): \(timeLeftAkl.second!)"
+         coffeineTimer.text = "\(timeLeftCof.hour!): \(timeLeftCof.minute!): \(timeLeftCof.second!)"
          // Show diffrent text when the event has passed
          endEvent(currentdate: currentDate)
         
@@ -158,10 +158,12 @@ class HomeViewController : UIViewController {
          if currentdate >= eventDate {
             alcoholTimer.text = "end!!"
          }
-        if currentdate >= eventDate {
+        if currentdate >= eventDateCoffiene {
             coffeineTimer.text = "end!!"
         }
+        
         if currentdate >= eventDate && currentdate >= eventDateCoffiene{
+            print("timer invalitdate")
             timer.invalidate()
         }
      }
@@ -176,7 +178,7 @@ class HomeViewController : UIViewController {
                     let time =  userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: eventDate)
                }
                var eventDateComponents = DateComponents()
-              let test = calc.calcDate(time: calc.calcAlkohol())
+              let test = calc.calcDateOfHour(time: calc.calcAlkohol())
                eventDateComponents.year = time.year
                eventDateComponents.month = time.month
                eventDateComponents.day = Int(time.day!) + test.days
@@ -185,7 +187,8 @@ class HomeViewController : UIViewController {
                eventDateComponents.second = Int(time.second!) + test.sec
                eventDateComponents.timeZone = TimeZone(abbreviation: "GMT+1")
                eventDate = userCalendar.date(from: eventDateComponents)!
-    }
+        print("ALKOHOLTimerSet!!\(eventDate)")
+               }
     func setCoffieneTimer() {
         let calc = Calculator()
         let userCalendar = Calendar.current
@@ -197,7 +200,8 @@ class HomeViewController : UIViewController {
                let time =  userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: eventDateCoffiene)
         }
         var eventDateComponents = DateComponents()
-        let test = calc.calcDate(time: calc.calcCoffin())
+
+        let test = calc.calcDateOfHour(time: calc.calcCoffin())
         eventDateComponents.year = time.year
         eventDateComponents.month = time.month
         eventDateComponents.day = Int(time.day!) + test.days
@@ -206,6 +210,7 @@ class HomeViewController : UIViewController {
         eventDateComponents.second = Int(time.second!) + test.sec
         eventDateComponents.timeZone = TimeZone(abbreviation: "GMT+1")
         eventDateCoffiene = userCalendar.date(from: eventDateComponents)!
+        print("CoffieneTimerSet!!\(eventDateCoffiene)")
     }
     
 }

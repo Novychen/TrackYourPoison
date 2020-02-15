@@ -24,6 +24,8 @@ class Calculator {
                      if let confood = try? context.fetch(requestFood){
                           food = confood
                       }
+        
+        
     }
     
       func maxSugar() -> Double{
@@ -36,7 +38,8 @@ class Calculator {
               sugar = sugar + (con.element.food!.sugar * con.element.food!.amount)
               
           }
-          let percent = max / 100
+        sugar = 17
+          let percent = 100/max
           print("maxSuger \(sugar * percent)")
           return sugar * percent
           
@@ -55,27 +58,27 @@ class Calculator {
               coffien = coffien + (con.element.food!.coffeine * con.element.food!.amount)
               
           }
-          let percent = max / 100
+        coffien  = 50
+          let percent = 100/max
           print("maxcoiffein \(coffien * percent)")
           return coffien * percent
       }
-      func maxAlkohol() -> Double{
-          var max  = 0.0
-          if user[0].gender == "female" {
-              max = 12.0;
-          }else if user[0].gender == "male"{
-              max = 24.0
-          }else{
-              max = 18.0
-          }
+    func maxAlkohol() -> Double{
+        var max  = 18.0
+        if user[0].gender == "female" {
+            max = 12.0;
+        }else if user[0].gender == "male"{
+            max = 24.0
+        }else{
+            max = 18.0
+        }
+        var alk = 0.0
+        for con in food.enumerated() {
+            alk = alk + ((con.element.food!.alcohol / 100) * con.element.food!.amount)
+        }
           
-          var alk = 0.0
-          for con in food.enumerated() {
-              alk = alk + (con.element.food!.alcohol * con.element.food!.amount)
-          }
-          
-          
-          let percent = max / 100
+          alk = 10
+          let percent = 100/max
             print("maxAlkohol \(alk * percent)")
           return alk * percent
       }
@@ -101,15 +104,18 @@ class Calculator {
               var coffien = 0.0
               for con in food.enumerated() {
                 if con.element.food!.selected{
-                    coffien = coffien + (con.element.food!.coffeine * con.element.food!.amount)
+                    coffien = coffien + (con.element.food!.coffeine * 1000 * con.element.food!.amount)
                     con.element.food!.selected = false
                 }
-              
+                
                   
               }
+            coffien = 50
                let clean = log(1/2) / tau
             if coffien == 0{return 0}
-              return log(25 / coffien) / clean
+            var ret = log(25 / coffien) / clean
+          print(ret)
+              return ret
            }
            //gets the time until the alcohol is vanisched for the blod
            /*
@@ -133,8 +139,9 @@ class Calculator {
                     con.element.food!.selected = false
                 }
               }
+              alk = 10
                let pro = alk / (user[0].weight * liquid)
-              print("maxAlkohol \(pro / 0.1)")
+              print("calcAlkohol \(pro / 0.1)")
                return pro / 0.1
          }
     
@@ -147,7 +154,20 @@ class Calculator {
         
         let minutes = Int(hoursRest) / 60
         let seconds = Int(hoursRest) % 60
-        return (0,hours,minutes,seconds)
+        return (days,hours,minutes,seconds)
     }
+    func calcDateOfHour(time : Double) -> (days : Int , hour : Int, min : Int, sec :Int) {
+               let days = Int(time) / 12
+               let daysRest = Int(time) % 12
+               
+               let hours = Int(daysRest) / 1
+               let hoursRest = Int(daysRest) % 1
+               
+               let minutes = Int(hoursRest) * 60
+               let noseconds = Int(hoursRest) * 3600
+               let seconds = Int(noseconds) % 60
+               return (days,hours,minutes,seconds)
+           }
+    
 
   }
