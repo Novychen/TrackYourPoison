@@ -101,7 +101,7 @@ class NewUserViewController : UIViewController, UINavigationControllerDelegate, 
             profil.weight = Double(userWeight.text!) ?? 0
             appDelegate.saveContext()
             
-            saveImage(imageName: "user_profile_photo", image:  userImage.image ?? UIImage(named : "card.png")!)
+            saveImage(imageName: "user_profile_photo", image:  userImage.image ?? UIImage(named : "replacment.jpeg")!)
             
             navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)

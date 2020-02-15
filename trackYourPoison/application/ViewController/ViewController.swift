@@ -12,43 +12,59 @@ import CoreData
 class ViewController: UIViewController {
    
     var pro : [Profil] = []
-    
-    
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var weightText: UITextField!
     @IBOutlet weak var ageText: UITextField!
-
-    
-    @IBOutlet weak var maleButton: UIButton!
-    @IBOutlet weak var femaleButton: UIButton!
     
     @IBOutlet weak var pillLabel: UILabel!
-    
     @IBOutlet weak var pregnantLable: UILabel!
     
     @IBOutlet weak var smokerSegment: UISegmentedControl!
     @IBOutlet weak var pillSegment: UISegmentedControl!
-    @IBOutlet weak var pregnantSegmet: UISegmentedControl!
+    @IBOutlet weak var pregnantSegment: UISegmentedControl!
+    @IBOutlet weak var genderSegment: UISegmentedControl!
     
-    
-    
-    var smoker  = false
-    var male = false
-    var female = false
-    var pill  = false
+    var smoker = false
+    var pill = false
     var preg = false
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-               let context = appDelegate.persistentContainer.viewContext
-               let request = NSFetchRequest<Profil>(entityName: "Profil")
-                if let profil = try? context.fetch(request){
-                   pro = profil
-               }
-
+       super.viewDidLoad()
+       self.setupHideKeyboardOnTap()
+       let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+       let context = appDelegate.persistentContainer.viewContext
+       let request = NSFetchRequest<Profil>(entityName: "Profil")
+        if let profil = try? context.fetch(request){
+           pro = profil
+       }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !pro.isEmpty {
+            setUserUp(profil: pro [0])
+        }
     }
 
-   
+    func setUserUp(profil: Profil) {
+        let user : Profil = pro[0]
+       
+        nameText.text = user.name
+        weightText.text = "\(user.weight)"
+        ageText.text = "\(user.age)"
+        if user.gender != "male" {
+            pregnantLable.isHidden = false
+            pregnantSegment.isHidden = false
+            pillLabel.isHidden = false
+            pillSegment.isHidden = false
+        } else {
+            pregnantLable.isHidden = true
+            pregnantSegment.isHidden = true
+            pillLabel.isHidden = true
+            pillSegment.isHidden = true
+        }
+    }
+    
     @IBAction func done(_ sender: Any) {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -57,139 +73,82 @@ class ViewController: UIViewController {
         
         if pro.isEmpty{
             profil.name = nameText.text
-                 print("name : \(profil.name)")
-                 profil.nikotin = smoker
-                 print("smoker : \(profil.nikotin)")
-                 profil.pill = pill
-                 print("pill : \(profil.pill)")
-                 profil.pregnent = preg
-                 print("preg : \(profil.pregnent)")
-                 if(male){
-                     profil.gender = "male"
-                 }else if(female){
-                     profil.gender = "female"
-                 }else{
-                     profil.gender = "unknown"
-                 }
-                 print("gender : \(profil.gender)")
-                 profil.age = Int64(ageText.text ?? " ") ?? 0
-                 print("age : \(profil.age)")
-                 profil.weight = Double(weightText.text!) ?? 0
-                 print("weight : \(profil.weight)")
-                 print("Data Saved")
-                
-                 appDelegate.saveContext()
-                 navigationController?.popViewController(animated: true)
-        }else{
-           
+            profil.nikotin = smoker
+            profil.pill = pill
+            profil.pregnent = preg
+            let pickedGender = genderSegment.selectedSegmentIndex
+            if pickedGender == 0 {
+                profil.gender = "female"
+            }else if pickedGender == 1 {
+                profil.gender = "male"
+            }else{
+                profil.gender = "unknown"
+            }
+            profil.age = Int64(ageText.text ?? " ") ?? 0
+            profil.weight = Double(weightText.text!) ?? 0
+            appDelegate.saveContext()
+        } else {
             pro[0].name = nameText.text
-            print("name : \(pro[0].name )")
+            pro[0].age = Int64(ageText.text ?? "0") ?? 0
+            pro[0].weight = Double(weightText.text ?? "0") ?? 0
             pro[0].nikotin = smoker
-            print("smoker : \(pro[0].nikotin)")
             pro[0].pill = pill
-            print("pill : \(pro[0].pill)")
             pro[0].pregnent = preg
-            print("preg : \(pro[0].pregnent)")
-            if(male){
-                pro[0].gender = "male"
-            }else if(female){
+            let pickedGender = genderSegment.selectedSegmentIndex
+            if pickedGender == 0 {
                 pro[0].gender = "female"
+            }else if pickedGender == 1 {
+                pro[0].gender = "male"
             }else{
                 pro[0].gender = "unknown"
             }
-            print("gender : \(pro[0].gender)")
-            pro[0].age = Int64(ageText.text ?? " ") ?? 0
-            print("age : \(pro[0].age)")
-            pro[0].weight = Double(weightText.text!) ?? 0
-            print("weight : \(pro[0].weight)")
-            print("Data Saved")
             appDelegate.saveContext()
-            navigationController?.popViewController(animated: true)
         }
-     
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func segmentTouched(_ sender: UISegmentedControl) {
          let x = sender.tag
         switch x{
-        case 0: if (!smoker){smoker = true
-        }else{
-            smoker = false
-        }
-        case 1:
-            if(!pill){ pill = true
-            }else{
-                pill = false
+            case 0:
+                if !smoker { smoker = true }
+                else { smoker = false }
+            case 1:
+                if !pill { pill = true }
+                else { pill = false }
+            case 2:
+                if !preg { preg = true }
+                else { preg = false }
+            case 3 :
+                if genderSegment.selectedSegmentIndex != 1 {
+                    pregnantLable.isHidden = false
+                    pregnantSegment.isHidden = false
+                    pillLabel.isHidden = false
+                    pillSegment.isHidden = false
+                } else {
+                    pregnantLable.isHidden = true
+                    pregnantSegment.isHidden = true
+                    pillLabel.isHidden = true
+                    pillSegment.isHidden = true
+                    pill = false
+                    preg = false
             }
-        case 2:
-            if (!preg){preg = true
-            }else{
-                preg = false
-            }
-        default : print("Unknown Segment")
+            default : print("Unknown Segment")
         }
         
     }
     
-    @IBAction func buttonTouchded(_ sender: UIButton) {
-        let x = sender.tag
-        switch x{
-        case 2:print("male")
-            if(!male && !female){
-                print("male")
-                male = true
-                pillLabel.isHidden = true
-                pillLabel.isHidden = true
-   
-                pillSegment.isHidden = true
-                pregnantSegmet.isHidden = true
-                pillSegment.isEnabled = false
-                pregnantSegmet.isEnabled = false
-                
-                
-            }else if(!male && female){
-                male = true
-                female = false
-                pillLabel.isHidden = true
-                pregnantLable.isHidden = true
+}
 
-                
-                pillSegment.isHidden = true
-                pregnantSegmet.isHidden = true
-                pillSegment.isEnabled = false
-                pregnantSegmet.isEnabled = false
-            }
-        case 3:print("female")
-            if(!male && !female){
-                female = true
-                pillLabel.isHidden = false
-                pregnantLable.isHidden = false
-
-                pillSegment.isHidden = false
-                pregnantSegmet.isHidden = false
-                pillSegment.isEnabled = true
-                pregnantSegmet.isEnabled = true
-                
-                
-                
-        }else if(male && !female){
-                female = true
-                pillLabel.isHidden = false
-                pregnantLable.isHidden = false
-
-                male = false
-                pillSegment.isHidden = false
-                pregnantSegmet.isHidden = false
-                pillSegment.isEnabled = true
-                pregnantSegmet.isEnabled = true
-        }
-   
-            
-        default:
-        print("no button")
-            
-        }
+extension ViewController {
+    func setupHideKeyboardOnTap() {
+        self.view.addGestureRecognizer(self.endEditingRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
     }
     
-   
+    private func endEditingRecognizer() -> UIGestureRecognizer {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        return tap
+    }
 }
 

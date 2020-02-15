@@ -12,7 +12,7 @@ import CoreData
 class HomeViewController : UIViewController {
     
     var date : [MyDate] = []
-
+    var savedData = false
     @IBOutlet weak var TimerTable: UITableView!
     @IBOutlet weak var alcoholTimer: UILabel!
     @IBOutlet weak var coffeineTimer: UILabel!
@@ -34,9 +34,10 @@ class HomeViewController : UIViewController {
         let start = defaults.integer(forKey: AppDelegate.appStartCount)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        if (start == 1) {
+        if (start == 1 && !savedData) {
             saveData(context : context)
             appDelegate.saveContext()
+            savedData = true
         }
         let request = NSFetchRequest<MyDate>(entityName: "MyDate")
                 if let num = try? context.fetch(request){
@@ -45,7 +46,7 @@ class HomeViewController : UIViewController {
         let userCalendar = Calendar.current
                let mydate = Date()
                let components = userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: mydate)
-           let currentDate = userCalendar.date(from: components)!
+        _ = userCalendar.date(from: components)!
         if date.isEmpty{
             let dateNew = MyDate(context: context)
             
@@ -83,9 +84,10 @@ class HomeViewController : UIViewController {
         let start = defaults.integer(forKey: AppDelegate.appStartCount)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        if (start == 1) {
+        if (start == 1 && !savedData) {
             saveData(context : context)
             appDelegate.saveContext()
+            savedData = true
         }
     }
     
@@ -94,7 +96,9 @@ class HomeViewController : UIViewController {
         let drinks = SoftDrinkData()
         let sweets = SweetsData()
         let coffee = CoffeeData()
-        
+        let alcohol = AlcoholData()
+        let tea = TeaData()
+
         var name = drinks.getName()
         var coffeine = drinks.getCoffeine()
         var sugar = drinks.getSugar()
@@ -116,7 +120,7 @@ class HomeViewController : UIViewController {
         name = sweets.getName()
         coffeine = sweets.getCoffeine()
         sugar = sweets.getSugar()
-        var alcohol = sweets.getAlcohol()
+        var alcoholValue = sweets.getAlcohol()
         size = sweets.getSize()
         kcal = sweets.getKcal()
         image = sweets.getImage()
@@ -126,7 +130,7 @@ class HomeViewController : UIViewController {
             food.name = name[index]
             food.sugar = sugar[index]
             food.coffeine = coffeine[index]
-            food.alcohol = alcohol[index]
+            food.alcohol = alcoholValue[index]
             food.size = size[index]
             food.kcal = Int32(kcal[index])
             food.image = image[index]
@@ -149,6 +153,44 @@ class HomeViewController : UIViewController {
             food.kcal = Int32(kcal[index])
             food.image = image[index]
             food.type = "coffee"
+        }
+        
+        name = alcohol.getName()
+        coffeine = alcohol.getCoffeine()
+        sugar = alcohol.getSugar()
+        size = alcohol.getSize()
+        kcal = alcohol.getKcal()
+        image = alcohol.getImage()
+        alcoholValue = alcohol.getAlcohol()
+
+        for (index, _) in name.enumerated(){
+            let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
+            food.name = name[index]
+            food.sugar = sugar[index]
+            food.coffeine = coffeine[index]
+            food.alcohol = alcoholValue[index]
+            food.size = size[index]
+            food.kcal = Int32(kcal[index])
+            food.image = image[index]
+            food.type = "alcohol"
+        }
+        
+        name = tea.getName()
+        coffeine = tea.getCoffeine()
+        sugar = tea.getSugar()
+        size = tea.getSize()
+        kcal = tea.getKcal()
+        image = tea.getImage()
+        
+        for (index, _) in name.enumerated(){
+            let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
+            food.name = name[index]
+            food.sugar = sugar[index]
+            food.coffeine = coffeine[index]
+            food.size = size[index]
+            food.kcal = Int32(kcal[index])
+            food.image = image[index]
+            food.type = "tea"
         }
         
         do {

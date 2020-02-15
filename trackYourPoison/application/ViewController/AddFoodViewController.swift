@@ -92,7 +92,6 @@ class AddFoodViewController : UIViewController {
         teaList.removeAll()
         
         for x in food.enumerated() {
-            print(x.element.type)
             if x.element.type == "softdrink" { softdrinkList.append(x.element) }
             else if x.element.type == "coffee" { coffeeList.append(x.element) }
             else if x.element.type == "sweets" { sweetsList.append(x.element) }
@@ -326,6 +325,8 @@ extension AddFoodViewController: UICollectionViewDataSource {
         if foodChosen == 0 { setDrinkCell(cell: cell, indexPath: indexPath) }
         else if foodChosen == 1 { setCoffeeCell(cell: cell, indexPath: indexPath) }
         else if foodChosen == 2 { setSweetsCell(cell: cell, indexPath: indexPath) }
+        else if foodChosen == 3 { setAlcoholCell(cell: cell, indexPath: indexPath) }
+        else if foodChosen == 4 { setTeaCell(cell: cell, indexPath: indexPath) }
         
         cell.foodInfo.numberOfLines = 0
         cell.foodName.numberOfLines = 0
@@ -393,6 +394,60 @@ extension AddFoodViewController: UICollectionViewDataSource {
      */
     func setSweetsCell(cell : FoodCell, indexPath : IndexPath){
         let drink = sweetsList[indexPath.row]
+        cell.foodName.text = drink.name
+        let sugar = drink.sugar
+        let coffeine = drink.coffeine
+        let kcal = drink.kcal
+        
+        if(sugar == 0 && coffeine != 0){
+            cell.foodInfo.text = "per 100 g \(kcal) kcal with \(coffeine) mg coffeine"
+        } else if (sugar != 0 && coffeine != 0){
+            cell.foodInfo.text = "per 100 g \(kcal) kcal with \(sugar) g sugar & \(coffeine) mg coffeine"
+        } else if (sugar != 0 && coffeine == 0) {
+            cell.foodInfo.text = "per 100 g \(kcal) kcal with \(sugar) g sugar"
+        } else {
+            cell.foodInfo.text = "per 100 g \(kcal) kcal with no sugar"
+        }
+        if drink.selected {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+        } else {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+        }
+        cell.foodImage.image = UIImage(named: drink.image ?? " ")
+    }
+    
+    /*
+     * Sets up a FoodCell with a Alcohol
+     */
+    func setAlcoholCell(cell : FoodCell, indexPath : IndexPath){
+        let drink = alcoholList[indexPath.row]
+        cell.foodName.text = drink.name
+        let sugar = drink.sugar
+        let alcohol = drink.alcohol
+        let kcal = drink.kcal
+        
+        if(sugar == 0 && alcohol != 0){
+            cell.foodInfo.text = "per 100 g \(kcal) kcal with \(alcohol) % alcohol"
+        } else if (sugar != 0 && alcohol != 0){
+            cell.foodInfo.text = "per 100 g \(kcal) kcal with \(sugar) g sugar & \(alcohol) % alcohol"
+        } else if (sugar != 0 && alcohol == 0) {
+            cell.foodInfo.text = "per 100 g \(kcal) kcal with \(sugar) g sugar"
+        } else {
+            cell.foodInfo.text = "per 100 g \(kcal) kcal with no alcohol"
+        }
+        if drink.selected {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
+        } else {
+            cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
+        }
+        cell.foodImage.image = UIImage(named: drink.image ?? " ")
+    }
+    
+    /*
+     * Sets up a FoodCell with a Tea
+     */
+    func setTeaCell(cell : FoodCell, indexPath : IndexPath){
+        let drink = teaList[indexPath.row]
         cell.foodName.text = drink.name
         let sugar = drink.sugar
         let coffeine = drink.coffeine

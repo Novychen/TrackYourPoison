@@ -14,15 +14,16 @@ class TeaData {
     private var sugar : [Double]
     private var size : [String]
     private var kcal : [Int]
-    
+    private var image : [String]
+
     init() {
-        name = []
-        
-        alcohol = []
-        coffeine = []
-        sugar = []
-        kcal = []
-        size = []
+        name = ["Scharzer Tee", "Früchtetee", "Kräutertee", "Grüner Tee", "Weißer Tee","Jasmintee"]
+        image = ["tea_tea.png", "tea_tea.png", "tea_tea.png", "tea_tea.png", "tea_tea.png","tea_tea.png"]
+        alcohol = [0.0,0.0,0.0,0.0,0.0,0.0]
+        coffeine = [20.0,11.0,11.0,10.6,11.80,10.60]
+        sugar = [0.0,0.0,0.0,0.0,0.0,0.0]
+        kcal = [0,0,0,0,0,0]
+        size = ["ml","ml","ml","ml","ml","ml"]
         
     }
     
@@ -48,5 +49,9 @@ class TeaData {
     
     func getKcal() -> [Int] {
         return kcal
+    }
+
+    public func getImage() -> [String] {
+        return image
     }
 }

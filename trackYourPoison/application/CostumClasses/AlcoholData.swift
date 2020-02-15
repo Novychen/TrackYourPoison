@@ -14,14 +14,16 @@ class AlcoholData {
     private var sugar : [Double]
     private var size : [String]
     private var kcal : [Int]
-    
+    private var image : [String]
+
     init() {
-        name = []
-        alcohol = []
-        coffeine = []
-        sugar = []
-        kcal = []
-        size = []
+        image = ["Alcohol_Freistädter.png","Alcohol_Gösser.png","Alcohol_stiegl.png", "Alcohol_weißwein.png","Alcohol_rotwein.png","Alcohol_kornschnaps.png"]
+        name = ["Freistädter Bier","Gösser","Stiegl", "Weißwein","Rotwein","Snaps Korn"]
+        alcohol = [4.4, 5.2, 5.1, 13, 12, 32]
+        coffeine = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        sugar = [0.0, 0.0, 0.0,1.0, 0.6, 0.0]
+        kcal = [48 , 43, 43, 68 , 80, 215]
+        size = ["ml","ml","ml","ml","ml","ml"]
         
     }
     
@@ -47,5 +49,9 @@ class AlcoholData {
     
     func getKcal() -> [Int] {
         return kcal
+    }
+    
+    public func getImage() -> [String] {
+        return image
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ProfileViewController : ViewController {
+class ProfileViewController : UIViewController {
 
     var user : [Profil] = []
     
@@ -18,43 +18,53 @@ class ProfileViewController : ViewController {
     @IBOutlet weak var ageField: UILabel!
     @IBOutlet weak var weightField: UILabel!
     @IBOutlet weak var genderField: UILabel!
-    @IBOutlet weak var smokerField: UILabel!
-    @IBOutlet weak var pillField: UILabel!
-    @IBOutlet weak var pregant: UILabel!
     
+    @IBOutlet weak var Label: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<Profil>(entityName: "Profil")
-         if let profil = try? context.fetch(request){
+       let context = appDelegate.persistentContainer.viewContext
+       let request = NSFetchRequest<Profil>(entityName: "Profil")
+        if let profil = try? context.fetch(request){
             user = profil
-            print(user)
         }
-        if !user.isEmpty{
+        print(user[0])
+
+        if !user.isEmpty {
             nameField.text = String("\(user[0].name!)")
             ageField.text = "\(user[0].age)"
             weightField.text = String("\(user[0].weight)")
          
             genderField.text = user[0].gender
-            if user[0].nikotin {
-                smokerField.isHidden = false
-              }else{smokerField.isHidden = true}
-            if user[0].pill {
-                pillField.isHidden = false
-            }else{pillField.isHidden = true}
-            if user[0].pregnent {
-                pregant.isHidden = false
-            }else{pregant.isHidden = true}
-        }
+            let nikotion = user[0].nikotin
+            let pill = user[0].pill
+            let preg =  user[0].pregnent
+            
+            if nikotion && pill && preg {
+                Label.text = "You are smoking, taking the pill and pregnant"
+            }  else if !nikotion && !pill && preg {
+                Label.text = "You are pregnant"
+            } else if !nikotion && pill && !preg {
+                Label.text = "You are taking the pill"
+            } else if nikotion && !pill && !preg {
+                Label.text = "You are smoking"
+            } else if nikotion && pill && !preg {
+                Label.text = "You are smoking and taking the pill"
+            } else if !nikotion && pill && preg {
+                Label.text = "You are taking the pill and pregnant"
+            } else if nikotion && !pill && preg {
+                Label.text = "You are smoking and pregnant"
+            } else { Label.text = " " }
+    }
     }
     
     override func viewDidLoad() {
-        userPicture.image = loadImageFromDiskWith(fileName: "user_profile_photo")
+        super.viewDidLoad()
+        self.userPicture.image = loadImageFromDiskWith(fileName: "user_profile_photo")
     }
-    
+
     func loadImageFromDiskWith(fileName: String) -> UIImage? {
         
         let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
@@ -66,9 +76,7 @@ class ProfileViewController : ViewController {
             let imageUrl = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
             let image = UIImage(contentsOfFile: imageUrl.path)
             return image
-            
         }
-        
         return nil
     }
     
