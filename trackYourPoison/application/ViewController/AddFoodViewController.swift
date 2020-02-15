@@ -13,6 +13,7 @@ class AddFoodViewController : UIViewController {
     
     var food : [Food] = []
     var selectedFood : [Food] = []
+    var amountFood : [Double] = []
     var softdrinkList : [Food] = []
     var coffeeList : [Food] = []
     var sweetsList : [Food] = []
@@ -42,6 +43,7 @@ class AddFoodViewController : UIViewController {
             x.selected = false
         }
         selectedFood.removeAll()
+        amountFood.removeAll()
         foodList.reloadData()
     }
     
@@ -82,6 +84,7 @@ class AddFoodViewController : UIViewController {
             }
         }
         selectedFood.removeAll()
+        amountFood.removeAll()
         softdrinkList.removeAll()
         coffeeList.removeAll()
         sweetsList.removeAll()
@@ -103,6 +106,7 @@ class AddFoodViewController : UIViewController {
         if segue.identifier == "SizeSegue" {
             if let detailsVC = segue.destination as? SizeViewController {
                     detailsVC.chosenFood = selectedFood
+                    detailsVC.amountOfchosenFood = amountFood
             }
         }
     }
@@ -119,7 +123,6 @@ class AddFoodViewController : UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deleteAll()
-        
     }
     
     func deleteAll() {
@@ -128,6 +131,7 @@ class AddFoodViewController : UIViewController {
             x.selected = false
         }
         selectedFood.removeAll()
+        amountFood.removeAll()
         softdrinkList.removeAll()
         coffeeList.removeAll()
         sweetsList.removeAll()
@@ -195,7 +199,6 @@ extension AddFoodViewController: UICollectionViewDelegate{}
 
 extension AddFoodViewController: UICollectionViewDataSource {
     
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = setFoodCell(indexPath: indexPath, collectionView: collectionView)
         return cell
@@ -219,11 +222,13 @@ extension AddFoodViewController: UICollectionViewDataSource {
                     drink.selected = true
                     cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
                     selectedFood.append(drink)
+                    amountFood.append(0)
                 } else {
                     drink.selected = false
                     cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
                     if let index = selectedFood.firstIndex(of: drink) {
                         selectedFood.remove(at: index)
+                        amountFood.remove(at: index)
                     }
                 }
             case CAFFEE:
@@ -232,13 +237,14 @@ extension AddFoodViewController: UICollectionViewDataSource {
                     coffee.selected = true
                     cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
                     selectedFood.append(coffee)
+                    amountFood.append(0)
                 } else {
                     coffee.selected = false
                     cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
                     if let index = selectedFood.firstIndex(of: coffee) {
                        selectedFood.remove(at: index)
+                        amountFood.remove(at: index)
                     }
-                    print(coffee.image)
                 }
             case SWEETS:
                 let sweets = sweetsList[indexPath.row]
@@ -246,11 +252,13 @@ extension AddFoodViewController: UICollectionViewDataSource {
                     sweets.selected = true
                     cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
                     selectedFood.append(sweets)
+                    amountFood.append(0)
                 } else {
                     sweets.selected = false
                     cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
                     if let index = selectedFood.firstIndex(of: sweets) {
                        selectedFood.remove(at: index)
+                        amountFood.remove(at: index)
                     }
                 }
             case ALCOHOL:
@@ -259,11 +267,13 @@ extension AddFoodViewController: UICollectionViewDataSource {
                     alcohol.selected = true
                     cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
                     selectedFood.append(alcohol)
+                    amountFood.append(0)
                 } else {
                     alcohol.selected = false
                     cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
                     if let index = selectedFood.firstIndex(of: alcohol) {
                         selectedFood.remove(at: index)
+                        amountFood.remove(at: index)
                     }
                 }
             case TEA:
@@ -272,11 +282,13 @@ extension AddFoodViewController: UICollectionViewDataSource {
                     tea.selected = true
                     cell.backgroundView = UIImageView(image: UIImage(named: "card_selected.png"))
                     selectedFood.append(tea)
+                    amountFood.append(0)
                 } else {
                     tea.selected = false
                     cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
                     if let index = selectedFood.firstIndex(of: tea) {
                        selectedFood.remove(at: index)
+                        amountFood.remove(at: index)
                     }
                 }
             default:
@@ -289,20 +301,20 @@ extension AddFoodViewController: UICollectionViewDataSource {
      * Returns the number of cells that will be displayed (changes as the category changes)
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            switch foodChosen {
-                case SOFTDRINK:
-                    return softdrinkList.count
-                case CAFFEE:
-                    return coffeeList.count
-                case SWEETS:
-                    return sweetsList.count
-                case ALCOHOL:
-                    return alcoholList.count
-                case TEA:
-                    return teaList.count
-                default:
-                    return 0
-            }
+        switch foodChosen {
+            case SOFTDRINK:
+                return softdrinkList.count
+            case CAFFEE:
+                return coffeeList.count
+            case SWEETS:
+                return sweetsList.count
+            case ALCOHOL:
+                return alcoholList.count
+            case TEA:
+                return teaList.count
+            default:
+                return 0
+        }
     }
 
     /*

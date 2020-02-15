@@ -17,23 +17,34 @@ class NewFoodViewController : UIViewController, UINavigationControllerDelegate, 
     var defaultImage = true
     @IBOutlet weak var categoryButton: UIButton!
     
+    @IBOutlet weak var sugarLabel: UILabel!
+    @IBOutlet weak var alcoholLabel: UILabel!
+    @IBOutlet weak var coffeineLabel: UILabel!
+    @IBOutlet weak var kcalLabel: UILabel!
+    
+    
+    @IBOutlet weak var kcalTextField: UITextField!
+    @IBOutlet weak var sugarTextField: UITextField!
+    @IBOutlet weak var alcoholTextField: UITextField!
+    @IBOutlet weak var coffeineTextField: UITextField!
+    
     @IBOutlet weak var size: UISegmentedControl!
-    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var categoryTable: UITableView!
-    @IBOutlet weak var appImage: UIButton!
-    @IBOutlet weak var camera: UIButton!
+    @IBOutlet weak var defaultImageButton: UIButton!
+    @IBOutlet weak var userImageButton: UIButton!
     
     @IBAction func pickeddefaultImage(_ sender: Any) {
         defaultImage = true
-        appImage.setBackgroundImage(UIImage(named: "card_selected.png"), for: .normal)
-        camera.setBackgroundImage(UIImage(named: "card.png"), for: .normal)
+        defaultImageButton.setImage(UIImage(named: "Image_selected.png"), for: .normal)
+        userImageButton.setImage(UIImage(named: "Image.png"), for: .normal)
     }
     
     
     @IBAction func pickedUserImage(_ sender: Any) {
         defaultImage = false
-        appImage.setBackgroundImage(UIImage(named: "card.png"), for: .normal)
-        camera.setBackgroundImage(UIImage(named: "card_selected.png"), for: .normal)
+        defaultImageButton.setImage(UIImage(named: "Image.png"), for: .normal)
+        userImageButton.setImage(UIImage(named: "Image_selected.png"), for: .normal)
 
         let image = UIImagePickerController()
         image.delegate = self
@@ -44,7 +55,7 @@ class NewFoodViewController : UIViewController, UINavigationControllerDelegate, 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            camera.setBackgroundImage(image, for: .normal)
+            userImageButton.setBackgroundImage(image, for: .normal)
         } else {
             let alert = UIAlertController(title: "Error", message: "There seems to be a problem with this image. Please pick another one", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
@@ -58,13 +69,15 @@ class NewFoodViewController : UIViewController, UINavigationControllerDelegate, 
         let context = appDelegate.persistentContainer.viewContext
     
         let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
-        if nameLabel.text == "" {
-            nameLabel.text = "food"
+        if nameTextField.text == "" {
+            nameTextField.text = "food"
         }
-        food.name = nameLabel.text
-        food.alcohol = 0
-        food.sugar = 0
-        food.coffeine = 0
+        food.name = nameTextField.text
+        food.alcohol = Double(alcoholTextField.text ?? "0") ?? 0
+        food.sugar = Double(sugarTextField.text ?? "0") ?? 0
+        food.coffeine = Double(coffeineTextField.text ?? "0") ?? 0
+        food.kcal = Int32(kcalTextField.text ?? "0") ?? 0
+
         if defaultImage {
             food.image = imageTitle
         }
@@ -86,13 +99,32 @@ class NewFoodViewController : UIViewController, UINavigationControllerDelegate, 
         categoryTable.isHidden = false
     }
     
+    @IBAction func pickedSize(_ sender: Any) {
+        
+        if size.selectedSegmentIndex == 0 {
+            sugarLabel.text = "in g per 100 ml"
+            alcoholLabel.text = "in % per 100 ml"
+            coffeineLabel.text = "in mg per 100 ml"
+            kcalLabel.text = "per 100 ml"
+        } else {
+            sugarLabel.text = "in g per 100 g"
+            alcoholLabel.text = "in % per 100 g"
+            coffeineLabel.text = "in mg per 100 g"
+            kcalLabel.text = "per 100 g"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoryTable.isHidden = true
         
-        appImage.setBackgroundImage(UIImage(named: "card_selected.png"), for: .normal)
+        defaultImageButton.setImage(UIImage(named: "Image_selected.png"), for: .normal)
+        defaultImageButton.setBackgroundImage( UIImage(named: "softdrink.png"), for: .normal)
+
         categoryTable.delegate = self
         categoryTable.dataSource = self
+        
+        self.setupHideKeyboardOnTap()
     }
 }
 
@@ -113,24 +145,39 @@ extension NewFoodViewController: UITableViewDataSource{
         if(chosenCategory != indexPath.row){
             chosenCategory = indexPath.row
         }
-        if chosenCategory == 0 {
-            appImage.setBackgroundImage( UIImage(named: "softdrink.png"), for: .normal)
-            imageTitle = "softdrink.png"
-        } else if chosenCategory == 1 {
-            appImage.setBackgroundImage( UIImage(named: "coffee.png"), for: .normal)
-            imageTitle = "coffee.png"
-        } else if chosenCategory == 2 {
-            appImage.setBackgroundImage( UIImage(named: "sweets.png"), for: .normal)
-            imageTitle = "sweets.png"
-        } else if chosenCategory == 3 {
-            appImage.setBackgroundImage( UIImage(named: "alcohol.png"), for: .normal)
-            imageTitle = "alcohol.png"
-        } else if chosenCategory == 4 {
-            appImage.setBackgroundImage( UIImage(named: "tea.png"), for: .normal)
-            imageTitle = "tea.png"
+        if defaultImage {
+            if chosenCategory == 0 {
+                defaultImageButton.setBackgroundImage( UIImage(named: "softdrink.png"), for: .normal)
+                imageTitle = "softdrink.png"
+            } else if chosenCategory == 1 {
+                defaultImageButton.setBackgroundImage( UIImage(named: "coffee.png"), for: .normal)
+                imageTitle = "coffee.png"
+            } else if chosenCategory == 2 {
+                defaultImageButton.setBackgroundImage( UIImage(named: "sweets.png"), for: .normal)
+                imageTitle = "sweets.png"
+            } else if chosenCategory == 3 {
+                defaultImageButton.setBackgroundImage( UIImage(named: "alcohol.png"), for: .normal)
+                imageTitle = "alcohol.png"
+            } else if chosenCategory == 4 {
+                defaultImageButton.setBackgroundImage( UIImage(named: "tea.png"), for: .normal)
+                imageTitle = "tea.png"
+            }
         }
         categoryButton.setTitle(categories[chosenCategory], for: .normal)
         self.categoryTable.isHidden = true
     }
     
+}
+
+extension NewFoodViewController {
+    func setupHideKeyboardOnTap() {
+        self.view.addGestureRecognizer(self.endEditingRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
+    }
+    
+    private func endEditingRecognizer() -> UIGestureRecognizer {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        return tap
+    }
 }

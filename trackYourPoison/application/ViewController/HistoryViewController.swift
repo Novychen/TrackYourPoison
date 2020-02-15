@@ -76,7 +76,7 @@ extension HistoryViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryCell
         cell.name.text = history[indexPath.row].food?.name
         cell.name.numberOfLines = 2
-        cell.amount.text = history[indexPath.row].time
+        cell.amount.text = "\(history[indexPath.row].food?.amount ?? 0) \(history[indexPath.row].food?.size ?? " ")"
         cell.imageView?.image = UIImage(named: history[indexPath.row].food?.image ?? " ")
         return cell
     }

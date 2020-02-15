@@ -13,16 +13,18 @@ class ProfileViewController : ViewController {
 
     var user : [Profil] = []
     
-
+    @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var userPicture: UIImageView!
+    @IBOutlet weak var ageField: UILabel!
+    @IBOutlet weak var weightField: UILabel!
+    @IBOutlet weak var genderField: UILabel!
+    @IBOutlet weak var smokerField: UILabel!
+    @IBOutlet weak var pillField: UILabel!
+    @IBOutlet weak var pregant: UILabel!
     
-    @IBOutlet weak var infoTable: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        infoTable.delegate = self
-        infoTable.dataSource = self
 
        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let context = appDelegate.persistentContainer.viewContext
@@ -30,27 +32,29 @@ class ProfileViewController : ViewController {
          if let profil = try? context.fetch(request){
             user = profil
         }
-    
-       // ageField.text = "\(user[0].age)"
-        infoTable.reloadData()
+        if !user.isEmpty{
+            nameField.text = String("\(user[0].name!)")
+            ageField.text = "\(user[0].age)"
+            weightField.text = String("\(user[0].weight)")
+         
+            genderField.text = user[0].gender
+            if user[0].nikotin {
+                smokerField.isHidden = false
+              }else{smokerField.isHidden = true}
+            if user[0].pill {
+                pillField.isHidden = false
+            }else{pillField.isHidden = true}
+            if user[0].pregnent {
+                pregant.isHidden = false
+            }else{pregant.isHidden = true}
+        }
     }
     
 }
 
-extension ProfileViewController : UITableViewDelegate {
-    
-}
-extension ProfileViewController : UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell")!
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user.count
-    }
+
     
     
    
     
-}
+
