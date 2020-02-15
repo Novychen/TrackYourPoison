@@ -21,31 +21,33 @@ class Calculator {
             user = profil
         }
         let requestFood = NSFetchRequest<Consumed>(entityName: "Consumed")
-        if let confood = try? context.fetch(requestFood){
-            food = confood
-        }
-        if !food.isEmpty {
-            print(food[0])
-        }
+
+                     if let confood = try? context.fetch(requestFood){
+                          food = confood
+                      }
+        
+        
     }
     
       func maxSugar() -> Double{
-        var max = 60.0
+          var max = 60.0
         if !user.isEmpty {
-              if user[0].gender == "male"{max = 65.0}
-              if user[0].gender == "female"{max = 50.0}
-            
-              var sugar = 0.0
-              for con in food.enumerated() {
-                  sugar = sugar + (con.element.food!.sugar * con.element.food!.amount)
-                
-              }
-              let percent = max / 100
-              print("maxSuger \(sugar * percent)")
-              return sugar * percent
+          if user[0].gender == "male"{max = 65.0}
+          if user[0].gender == "female"{max = 50.0}
+          
+          var sugar = 0.0
+          for con in food.enumerated() {
+              sugar = sugar + (con.element.food!.sugar)
+              
+          }
+    
+          let percent = 100/max
+          print("maxSuger \(sugar * percent)")
+          return sugar * percent
         }
         return 0
       }
+    
       func maxCoffiene() -> Double{
           var max = 400.0
         if !user.isEmpty {
@@ -58,50 +60,47 @@ class Calculator {
           
           var coffien = 0.0
           for con in food.enumerated() {
-              coffien = coffien + (con.element.food!.coffeine * con.element.food!.amount)
+              coffien = coffien + (con.element.food!.coffeine)
           }
-          let percent = max / 100
+      
+          let percent = 100/max
           print("maxcoiffein \(coffien * percent)")
           return coffien * percent
         }
         return 0
       }
-    
-      func maxAlkohol() -> Double{
-          var max  = 0.0
+
+    func maxAlkohol() -> Double{
+        var max  = 18.0
         if !user.isEmpty {
-          if user[0].gender == "female" {
-              max = 12.0;
-          }else if user[0].gender == "male"{
-              max = 24.0
-          }else{
-              max = 18.0
-          }
+        if user[0].gender == "female" {
+            max = 12.0;
+        }else if user[0].gender == "male"{
+            max = 24.0
+        }else{
+            max = 18.0
+        }
+        var alk = 0.0
+        for con in food.enumerated() {
+            alk = alk + ((con.element.food!.alcohol / 100) * con.element.food!.amount)
+        }
+
           
-          var alk = 0.0
-          for con in food.enumerated() {
-              alk = alk + (con.element.food!.alcohol * con.element.food!.amount)
-          }
-          
-          
-          let percent = max / 100
+         
+          let percent = 100/max
             print("maxAlkohol \(alk * percent)")
           return alk * percent
         }
         return 0
-      }
-      /*f(t) = N*e^k*t -> t = (ln(f(t)/N)/k)
-            f(t) = menge des abgebauten nach der zeit t
-            N = menge des eingenommen coffein in gram
-            k = -0.23
-            t = zeit
-            @param coffien -> in mg
-            */
+    }
+
+      
            func calcCoffin() -> Double{
                var tau = 3.0
             if !user.isEmpty {
               if user[0].pill {
-                   tau = tau + 10
+                   tau = tau + 12
+            
                }
               if user[0].pregnent {
                    tau =  tau + 17
@@ -110,27 +109,27 @@ class Calculator {
               if user[0].nikotin {
                    tau = tau / 2
                }
+                    print(tau)
               var coffien = 0.0
               for con in food.enumerated() {
-                if con.element.food!.selected{
-                    coffien = coffien + (con.element.food!.coffeine * con.element.food!.amount)
+                print("isSelcted\(con.element.food!.selected)")
+                if !con.element.food!.selected{
+                    coffien = coffien + (con.element.food!.coffeine )
                     con.element.food!.selected = false
                 }
+
               }
-               let clean = log(1/2) / tau
                 if coffien == 0{ return 0 }
-                return log(25 / coffien) / clean
+                let time = (log(25 / coffien) * tau) / log(0.5)
+                print("time in h : \(time) !!!")
+                return time
+
            }
             return 0
         }
-           //gets the time until the alcohol is vanisched for the blod
-           /*
-            köperflüssigkeits anteil genaue berechung
-            Frauen: - 2,097 + 0,1069 x Größe in cm + 0,2466 x Körpergewicht in kg
-            Männer:  2,447 - 0,09516 x Alter in Jahr + 0,1074 x Größe in cm + 0,3362 x Körpergewicht
-            abbau 0,1 -0,2 prommile im blut**/
+        
            func calcAlkohol() -> Double{
-               var liquid = 0.0
+               var liquid = 0.6
             if !user.isEmpty {
               if user[0].gender == "female" {
                    liquid = 0.55;
@@ -146,8 +145,10 @@ class Calculator {
                     con.element.food!.selected = false
                 }
               }
+                
+                if(user[0].weight == 0){return 0}
                let pro = alk / (user[0].weight * liquid)
-              print("maxAlkohol \(pro / 0.1)")
+              print("calcAlkohol \(pro / 0.1)")
                return pro / 0.1
             }
             return 0
@@ -162,6 +163,22 @@ class Calculator {
         
         let minutes = Int(hoursRest) / 60
         let seconds = Int(hoursRest) % 60
-        return (0,hours,minutes,seconds)
+        return (days,hours,minutes,seconds)
     }
-}
+
+    func calcDateOfHour(time : Double) -> (days : Int , hour : Int, min : Int, sec :Int) {
+               let days = Int(time) / 12
+               let daysRest = Int(time) % 12
+               
+               let hours = Int(daysRest) / 1
+               let hoursRest = Int(daysRest) % 1
+               
+               let minutes = Int(hoursRest) * 60
+               let noseconds = Int(hoursRest) * 3600
+               let seconds = Int(noseconds) % 60
+               return (days,hours,minutes,seconds)
+           }
+    
+
+  }
+

@@ -92,6 +92,7 @@ class AddFoodViewController : UIViewController {
         teaList.removeAll()
         
         for x in food.enumerated() {
+            print(x.element.type)
             if x.element.type == "softdrink" { softdrinkList.append(x.element) }
             else if x.element.type == "coffee" { coffeeList.append(x.element) }
             else if x.element.type == "sweets" { sweetsList.append(x.element) }
