@@ -13,7 +13,6 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="selected" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sizesAvailable" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="sugar" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -27,8 +26,8 @@
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Food" positionX="0" positionY="72" width="128" height="210"/>
-        <element name="Profil" positionX="18" positionY="117" width="128" height="150"/>
         <element name="Consumed" positionX="9" positionY="153" width="128" height="75"/>
+        <element name="Food" positionX="0" positionY="72" width="128" height="195"/>
+        <element name="Profil" positionX="18" positionY="117" width="128" height="150"/>
     </elements>
 </model>

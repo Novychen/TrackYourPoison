@@ -17,9 +17,23 @@ class HomeViewController : UIViewController {
     var timer : Timer?
     var timealc = 10000.0
     var timecof = 20000.0
+    @IBOutlet weak var maxSuger: UILabel!
+    @IBOutlet weak var maxAlkohol: UILabel!
+    @IBOutlet weak var maxCoffiene: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        let calc = Calculator()
+               timealc = calc.calcAlkohol()
+               timecof = calc.calcCoffin()
+               maxSuger.text = String("\( calc.maxSugar())%")
+               maxAlkohol.text = String("\( calc.maxAlkohol())%")
+               maxCoffiene.text = String("\( calc.maxCoffiene())%")
+         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+       }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         let defaults = UserDefaults.standard
         let start = defaults.integer(forKey: AppDelegate.appStartCount)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -28,9 +42,7 @@ class HomeViewController : UIViewController {
             saveData(context : context)
             appDelegate.saveContext()
         }
-         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        
-       }
+    }
     
     func saveData(context : NSManagedObjectContext) {
        
@@ -43,15 +55,17 @@ class HomeViewController : UIViewController {
         var sugar = drinks.getSugar()
         var size = drinks.getSize()
         var kcal = drinks.getKcal()
+        var image = drinks.getImage()
         
         for (index, _) in name.enumerated(){
             let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
             food.name = name[index]
             food.sugar = sugar[index]
             food.coffeine = coffeine[index]
-            food.sizesAvailable = size[index] as NSObject
+            food.size = size[index]
             food.kcal = Int32(kcal[index])
-            food.type = "softDrink"
+            food.image = image[index]
+            food.type = "softdrink"
         }
         
         name = sweets.getName()
@@ -60,15 +74,15 @@ class HomeViewController : UIViewController {
         var alcohol = sweets.getAlcohol()
         size = sweets.getSize()
         kcal = sweets.getKcal()
-        var image = sweets.getImage()
+        image = sweets.getImage()
     
         for (index, _) in name.enumerated(){
-             let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
+            let food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: context) as! Food
             food.name = name[index]
             food.sugar = sugar[index]
             food.coffeine = coffeine[index]
             food.alcohol = alcohol[index]
-            food.sizesAvailable = size[index] as NSObject
+            food.size = size[index]
             food.kcal = Int32(kcal[index])
             food.image = image[index]
             food.type = "sweets"
@@ -86,7 +100,7 @@ class HomeViewController : UIViewController {
             food.name = name[index]
             food.sugar = sugar[index]
             food.coffeine = coffeine[index]
-            food.sizesAvailable = size[index] as NSObject
+            food.size = size[index]
             food.kcal = Int32(kcal[index])
             food.image = image[index]
             food.type = "coffee"
@@ -101,10 +115,10 @@ class HomeViewController : UIViewController {
     
     /*timer to string*/
     func timeString(time:TimeInterval) -> String {
-        let hours = Int(time) / 3600
+       /* let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String("\(hours):\(minutes):\(seconds)" )
+        let seconds = Int(time) % 60*/
+        return String("\(time)" )
     }
     @objc func updateTimer(){
         timealc -= 1

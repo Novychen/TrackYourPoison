@@ -2,7 +2,7 @@
 //  Food+CoreDataProperties.swift
 //  trackYourPoison
 //
-//  Created by Yvonne on 12.02.20.
+//  Created by Yvonne on 14.02.20.
 //  Copyright © 2020 Ines&Yvonne. All rights reserved.
 //
 //
@@ -25,7 +25,6 @@ extension Food {
     @NSManaged public var name: String?
     @NSManaged public var selected: Bool
     @NSManaged public var size: String?
-    @NSManaged public var sizesAvailable: NSObject?
     @NSManaged public var sugar: Double
     @NSManaged public var type: String?
 

@@ -31,14 +31,71 @@ class AddFoodViewController : UIViewController {
     @IBOutlet weak var foodChoice: UIButton!
     @IBOutlet weak var foodList: UICollectionView!
     @IBOutlet weak var foodOptionTable: UITableView!
-    @IBOutlet weak var saveButton: UIButton!
-    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+  
     @IBAction func foodChosen(_ sender: Any) {
         self.foodOptionTable.isHidden = false
     }
     
+    @IBAction func diselectAll(_ sender: Any) {
+        for x in selectedFood {
+            x.selected = false
+        }
+        selectedFood.removeAll()
+        foodList.reloadData()
+    }
+    
+    @IBAction func deleteFood(_ sender: Any) {
+        
+        // Alert Dialog
+        if selectedFood.isEmpty {
+            let alert = UIAlertController(title: "Warning", message: "There is no data selected", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "About to delete data", message: "Are you sure you want to delete this data permanently?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in self.deleteData() }))
+            self.present(alert, animated: true)
+        }
+    }
+    
     @IBAction func saveFood(_ sender: Any) {
         self.performSegue(withIdentifier: "SizeSegue", sender: self)
+    }
+    
+    func deleteData() {
+        // Removing the selected Cells
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<Food>(entityName: "Food")
+        if let items = try? context.fetch(request) {
+            for x in items.enumerated() {
+                for y in selectedFood.enumerated() {
+                    if x.element.name == y.element.name {
+                        context.delete(x.element)
+                        selectedFood.remove(at: y.offset)
+                        food.remove(at: x.offset)
+                        appDelegate.saveContext()
+                    }
+                }
+            }
+        }
+        selectedFood.removeAll()
+        softdrinkList.removeAll()
+        coffeeList.removeAll()
+        sweetsList.removeAll()
+        alcoholList.removeAll()
+        teaList.removeAll()
+        
+        for x in food.enumerated() {
+            if x.element.type == "softdrink" { softdrinkList.append(x.element) }
+            else if x.element.type == "coffee" { coffeeList.append(x.element) }
+            else if x.element.type == "sweets" { sweetsList.append(x.element) }
+            else if x.element.type == "tea" { teaList.append(x.element) }
+            else if x.element.type == "alcohol" { alcoholList.append(x.element) }
+        }
+        foodList.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,17 +110,29 @@ class AddFoodViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        deleteAll()
         foodList.allowsMultipleSelection = true
         requestData()
+        foodList.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        deleteAll()
         
-        selectedFood.removeAll()
-        for x in food {
+    }
+    
+    func deleteAll() {
+        food.removeAll()
+        for x in selectedFood {
             x.selected = false
         }
+        selectedFood.removeAll()
+        softdrinkList.removeAll()
+        coffeeList.removeAll()
+        sweetsList.removeAll()
+        alcoholList.removeAll()
+        teaList.removeAll()
     }
     
     override func viewDidLoad() {
@@ -88,7 +157,7 @@ class AddFoodViewController : UIViewController {
         }
         
         for x in food.enumerated() {
-            if x.element.type == "softDrink" { softdrinkList.append(x.element) }
+            if x.element.type == "softdrink" { softdrinkList.append(x.element) }
             else if x.element.type == "coffee" { coffeeList.append(x.element) }
             else if x.element.type == "sweets" { sweetsList.append(x.element) }
             else if x.element.type == "tea" { teaList.append(x.element) }
@@ -126,6 +195,7 @@ extension AddFoodViewController: UICollectionViewDelegate{}
 
 extension AddFoodViewController: UICollectionViewDataSource {
     
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = setFoodCell(indexPath: indexPath, collectionView: collectionView)
         return cell
@@ -168,6 +238,7 @@ extension AddFoodViewController: UICollectionViewDataSource {
                     if let index = selectedFood.firstIndex(of: coffee) {
                        selectedFood.remove(at: index)
                     }
+                    print(coffee.image)
                 }
             case SWEETS:
                 let sweets = sweetsList[indexPath.row]
@@ -218,20 +289,20 @@ extension AddFoodViewController: UICollectionViewDataSource {
      * Returns the number of cells that will be displayed (changes as the category changes)
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch foodChosen {
-            case SOFTDRINK:
-                return softdrinkList.count
-            case CAFFEE:
-                return coffeeList.count
-            case SWEETS:
-                return sweetsList.count
-            case ALCOHOL:
-                return alcoholList.count
-            case TEA:
-                return teaList.count
-            default:
-                return 0
-        }
+            switch foodChosen {
+                case SOFTDRINK:
+                    return softdrinkList.count
+                case CAFFEE:
+                    return coffeeList.count
+                case SWEETS:
+                    return sweetsList.count
+                case ALCOHOL:
+                    return alcoholList.count
+                case TEA:
+                    return teaList.count
+                default:
+                    return 0
+            }
     }
 
     /*
@@ -239,15 +310,16 @@ extension AddFoodViewController: UICollectionViewDataSource {
      */
     func setFoodCell(indexPath : IndexPath, collectionView: UICollectionView) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCell", for: indexPath) as! FoodCell
-        if(foodChosen == 0) { setDrinkCell(cell: cell, indexPath: indexPath) }
-        else if (foodChosen == 1) { setCoffeeCell(cell: cell, indexPath: indexPath) }
-        else if (foodChosen == 2) { setSweetsCell(cell: cell, indexPath: indexPath) }
+        if foodChosen == 0 { setDrinkCell(cell: cell, indexPath: indexPath) }
+        else if foodChosen == 1 { setCoffeeCell(cell: cell, indexPath: indexPath) }
+        else if foodChosen == 2 { setSweetsCell(cell: cell, indexPath: indexPath) }
         
         cell.foodInfo.numberOfLines = 0
         cell.foodName.numberOfLines = 0
         return cell
     }
     
+   
     /*
      * Sets up a FoodCell with a SoftDrink
      */
@@ -272,6 +344,7 @@ extension AddFoodViewController: UICollectionViewDataSource {
         } else {
             cell.backgroundView = UIImageView(image: UIImage(named: "card.png"))
         }
+        cell.foodImage.image = UIImage(named: drink.image ?? " ")
     }
     
     /*
@@ -328,5 +401,4 @@ extension AddFoodViewController: UICollectionViewDataSource {
         }
         cell.foodImage.image = UIImage(named: drink.image ?? " ")
     }
-    
 }

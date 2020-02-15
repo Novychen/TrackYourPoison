@@ -29,9 +29,8 @@ class ViewController: UIViewController {
     var preg = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
+
    
     @IBAction func done(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

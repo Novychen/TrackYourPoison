@@ -44,7 +44,6 @@ class SizeViewController : UIViewController {
             food.time = time
             item.element.selected = false
         }
-        let test = AddFoodViewController()
         appDelegate.saveContext()
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
@@ -77,8 +76,8 @@ extension SizeViewController: UITableViewDataSource{
         cell.foodImage.image = UIImage(named: chosenFood[indexPath.row].image ?? " ")
         cell.foodName.text = chosenFood[indexPath.row].name
         
-        let sizeOptions = chosenFood[indexPath.row].sizesAvailable as! [String]
-        cell.sizeLabel.text = sizeOptions[0]
+        let sizeOptions = chosenFood[indexPath.row].size
+        cell.sizeLabel.text = sizeOptions
         
         return cell
     }
