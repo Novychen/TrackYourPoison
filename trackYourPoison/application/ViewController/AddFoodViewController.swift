@@ -233,7 +233,7 @@ extension AddFoodViewController: UICollectionViewDataSource {
         if(foodChosen == 0) { setDrinkCell(cell: cell, indexPath: indexPath) }
         else if (foodChosen == 1) { setCoffeeCell(cell: cell, indexPath: indexPath) }
         else if (foodChosen == 2) { setSweetsCell(cell: cell, indexPath: indexPath) }
-        
+     
         cell.foodInfo.numberOfLines = 0
         cell.foodName.numberOfLines = 0
         return cell

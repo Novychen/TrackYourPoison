@@ -100,12 +100,16 @@ class Calculator {
                }
               var coffien = 0.0
               for con in food.enumerated() {
-                  coffien = coffien + (con.element.food!.coffeine * con.element.food!.amount)
+                if con.element.food!.selected{
+                    coffien = coffien + (con.element.food!.coffeine * con.element.food!.amount)
+                    con.element.food!.selected = false
+                }
+              
                   
               }
                let clean = log(1/2) / tau
-               print("coffiene time:  \(0.5 + log(0.025 / coffien) / clean)")
-              return 0.5 + log(0.025 / coffien) / clean
+            if coffien == 0{return 0}
+              return log(25 / coffien) / clean
            }
            //gets the time until the alcohol is vanisched for the blod
            /*
@@ -124,11 +128,26 @@ class Calculator {
                }
               var alk = 0.0
               for con in food.enumerated() {
+                if con.element.food!.selected{
                   alk = alk + (con.element.food!.alcohol * con.element.food!.amount)
+                    con.element.food!.selected = false
+                }
               }
                let pro = alk / (user[0].weight * liquid)
               print("maxAlkohol \(pro / 0.1)")
                return pro / 0.1
          }
+    
+    func calcDate(time : Double) -> (days : Int , hour : Int, min : Int, sec :Int) {
+        let days = Int(time) / 86400
+        let daysRest = Int(time) % 86400
+        
+        let hours = Int(daysRest) / 3600
+        let hoursRest = Int(daysRest) % 3600
+        
+        let minutes = Int(hoursRest) / 60
+        let seconds = Int(hoursRest) % 60
+        return (0,hours,minutes,seconds)
+    }
 
   }
