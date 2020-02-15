@@ -12,17 +12,18 @@ class SoftDrinkData {
     private var name : [String]
     private var coffeine : [Double]
     private var sugar : [Double]
-    private var size : [[String]]
+    private var size : [String]
     private var kcal : [Int]
+    private var image : [String]
+
     
     init() {
         name = ["Coca-Cola Classic",
                 "Coca-Cola Zero",
                 "Coca-Cola Vanilla",
                 "Coca-Cola Cherry", 
-                "Coca-Cola Light",
+                "Coca-Cola Diet",
                 "Coca-Cola Life",
-                "Nestea Iced Tea",
                 "Red Bull Classic",
                 "Red Bull Total Zero",
                 "Red Bull sugarfree",
@@ -39,11 +40,33 @@ class SoftDrinkData {
                 "Spider Energy Drink",
                 "SPIKE Hardcore Energy"]
         
-        coffeine = [9.6, 9.6, 9.6, 9.6, 13, 7.9, 2.2, 32, 32, 32, 36, 11.5, 11.5, 11, 0, 10.7, 25, 0, 0, 32.6, 50.7, 73.9]
-        sugar = [10.6, 0, 11.1, 10.7, 0, 4.8, 6.9, 11, 0, 0, 0, 0, 11.4, 6.8, 10.3, 11.6, 11, 10.4, 5, 11, 5.9, 0]
-        size = [["ml"], ["ml"], ["ml"], ["ml"], ["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"], ["ml"], ["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"],["ml"]]
+        image = ["Drink_CocaCola_Classic.png",
+                "Drink_CocaCola_Zero.png",
+                "Drink_CocaCola_Vanilla.png",
+                "Drink_CocaCola_Cherry.png",
+                "Drink_CocaCola_Diet.png",
+                "Drink_CocaCola_Life.png",
+                "Drink_RedBull_Classic.png",
+                "Drink_RedBull_Zero.png",
+                "Drink_RedBull_Sugarfree.png",
+                "Drink_MonsterEnergy.png",
+                "Drink_DrPepper_Classic.png",
+                "Drink_DrPepper_Zero.png",
+                "Drink_Pepsi.png",
+                "Drink_DrPepper_Cherry.png",
+                "Drink_Fanta_Orange.png",
+                "Drink_FritzCola.png",
+                "Drink_7up.png",
+                "Drink_Sprite.png",
+                "Drink_XL.png",
+                "Drink_Spider.png",
+                "Drink_Spike.png"]
         
-        kcal = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        coffeine = [9.6, 9.6, 9.6, 9.6, 13, 7.9, 32, 32, 32, 36, 11.5, 11.5, 11, 0, 10.7, 25, 0, 0, 32.6, 50.7, 73.9]
+        sugar = [10.6, 0, 11.1, 10.7, 0, 4.8, 11, 0, 0, 0, 0, 11.4, 6.8, 10.3, 11.6, 11, 10.4, 5, 11, 5.9, 0]
+        size = ["ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml", "ml"]
+        
+        kcal = [39,0,34,36,0,25,45,0,0,47,27,1,43,28,42,42,44,39,47,25,0]
     }
     
     public func getName() -> [String] {
@@ -58,35 +81,15 @@ class SoftDrinkData {
         return coffeine
     }
     
-    func getSize() -> [[String]] {
+    func getSize() -> [String] {
         return size
     }
     
     func getKcal() -> [Int] {
         return kcal
     }
+    
+    func getImage() -> [String] {
+        return image
+    }
 }
-
-/*
- [150,200,250,330,500,1000,1250,1500,2000],
- [150,200,250,330,500,1000,1250,1500,2000],
- [150,200,250,330,500,1000,1250,1500,2000],
- [150,200,250,330,500,1000,1250,1500,2000],
- [150,200,250,330,500,1000,1250,1500,2000],
- [250,1000,1500,2000],
- [250, 355, 473],
- [250, 355, 473],
- [250, 355, 473],
- [330,553,500],
- [330, 500, 1000],
- [330, 500, 1000],
- [330, 500, 1000],
- [250, 330, 500, 1000, 1500, 2000],
- [330, 500, 1500, 2000],
- [200, 330, 500],
- [330],
- [330, 500, 1000, 1500, 2000],
- [250],
- [250],
- [250]*/
-

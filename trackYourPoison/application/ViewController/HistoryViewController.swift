@@ -22,8 +22,16 @@ class HistoryViewController : UIViewController {
         super.viewDidLoad()
         historyTable.delegate = self
         historyTable.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.evening.removeAll()
+        self.noon.removeAll()
+        self.morning.removeAll()
         requestData()
         sortData()
+        historyTable.reloadData()
     }
     
     func sortData() {
@@ -68,7 +76,7 @@ extension HistoryViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryCell
         cell.name.text = history[indexPath.row].food?.name
         cell.name.numberOfLines = 2
-        cell.amount.text = history[indexPath.row].time
+        cell.amount.text = "\(history[indexPath.row].food?.amount ?? 0) \(history[indexPath.row].food?.size ?? " ")"
         cell.imageView?.image = UIImage(named: history[indexPath.row].food?.image ?? " ")
         return cell
     }
@@ -82,7 +90,27 @@ extension HistoryViewController : UITableViewDataSource {
     }
 
         
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<Consumed>(entityName: "Consumed")
+            if let items = try? context.fetch(request) {
+                for x in items {
+                    if x.food?.name == items[indexPath.row].food?.name {
+                        context.delete(x)
+                        appDelegate.saveContext()
+                    }
+                }
+            }
+            self.evening.removeAll()
+            self.noon.removeAll()
+            self.morning.removeAll()
+            requestData()
+            sortData()
+            tableView.reloadData()
+        }
+    }
     
     
     

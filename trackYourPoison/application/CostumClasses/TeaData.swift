@@ -12,7 +12,7 @@ class TeaData {
     private var alcohol : [Double]
     private var coffeine : [Double]
     private var sugar : [Double]
-    private var size : [[String]]
+    private var size : [String]
     private var kcal : [Int]
     
     init() {
@@ -22,7 +22,7 @@ class TeaData {
         coffeine = []
         sugar = []
         kcal = []
-        size = [[]]
+        size = []
         
     }
     
@@ -42,7 +42,7 @@ class TeaData {
         return coffeine
     }
     
-    func getSize() -> [[String]] {
+    func getSize() -> [String] {
         return size
     }
     

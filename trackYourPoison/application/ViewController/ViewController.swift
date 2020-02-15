@@ -45,13 +45,9 @@ class ViewController: UIViewController {
                 if let profil = try? context.fetch(request){
                    pro = profil
                }
- 
-      
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
+
    
     @IBAction func done(_ sender: Any) {
         

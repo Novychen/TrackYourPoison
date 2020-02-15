@@ -1,8 +1,8 @@
 //
-//  Sweets+CoreDataClass.swift
+//  MyDate+CoreDataClass.swift
 //  trackYourPoison
 //
-//  Created by Yvonne on 08.02.20.
+//  Created by Ines Langbauer on 15.02.20.
 //  Copyright © 2020 Ines&Yvonne. All rights reserved.
 //
 //
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(Sweets)
-public class Sweets: NSManagedObject {
+@objc(MyDate)
+public class MyDate: NSManagedObject {
 
 }

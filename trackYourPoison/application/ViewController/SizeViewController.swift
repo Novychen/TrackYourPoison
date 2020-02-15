@@ -13,7 +13,8 @@ import CoreData
 class SizeViewController : UIViewController {
     
     var chosenFood : [Food] = []
-   
+    var amountOfchosenFood : [Double] = []
+    
     @IBOutlet weak var sizePopupView: UIView!
     @IBOutlet weak var sizeTable : UITableView!
    
@@ -42,9 +43,11 @@ class SizeViewController : UIViewController {
             let food = NSEntityDescription.insertNewObject(forEntityName: "Consumed", into: context) as! Consumed
             food.food = item.element
             food.time = time
+            item.element.selected = false
+            food.food?.amount = amountOfchosenFood[item.offset]
+            print("name: \(item.element.name) amount: \(amountOfchosenFood[item.offset])")
         }
         appDelegate.saveContext()
-        
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -60,7 +63,7 @@ class SizeViewController : UIViewController {
         
         sizeTable.delegate = self
         sizeTable.dataSource = self
-        
+    
         self.setupHideKeyboardOnTap()
     }
 }
@@ -75,11 +78,24 @@ extension SizeViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "SizeCell", for: indexPath) as! SizeCell
         cell.foodImage.image = UIImage(named: chosenFood[indexPath.row].image ?? " ")
         cell.foodName.text = chosenFood[indexPath.row].name
-        
-        let sizeOptions = chosenFood[indexPath.row].sizesAvailable as! [String]
-        cell.sizeLabel.text = sizeOptions[0]
-        
+        cell.amount.delegate = self
+        cell.amount.tag = indexPath.row
+        let sizeOptions = chosenFood[indexPath.row].size
+        cell.sizeLabel.text = sizeOptions
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            for (index, value) in chosenFood.enumerated() {
+                    if value.name == chosenFood[indexPath.row].name {
+                        value.selected = false
+                        chosenFood.remove(at: index)
+                        amountOfchosenFood.remove(at: index)
+                    }
+                }
+            tableView.reloadData()
+        }
     }
 }
 
@@ -93,5 +109,12 @@ extension SizeViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
         tap.cancelsTouchesInView = false
         return tap
+    }
+}
+
+extension SizeViewController : UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // save the text in the map using the stored row in the tag field
+        amountOfchosenFood[textField.tag] = Double(textField.text ?? "0") ?? 0
     }
 }
